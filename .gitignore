@@ -1,0 +1,21 @@
+.idea/*
+.vscode/*
+
+__pycache__/
+
+*.pyc
+*.py[cod]
+*$py.class
+
+*.sqlite3
+Backend/db.sqlite3
+
+Backend/venv
+Backend/env
+Backend/Skin_Analyzer/settings/local.py
+
+logs/
+logs/*.log
+
+# frontend files
+node_modules

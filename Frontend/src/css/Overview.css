@@ -1,0 +1,57 @@
+
+.overViewDate{
+    font-size: 10px;
+    font-weight: 300;
+}
+.OverViewCards{
+    min-height: 100px;
+    box-shadow: 0px 0px 35px -13px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+.circular-progress{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: conic-gradient(#FFF500 18.2deg, #ededed 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circular-progress::before{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.circular-progress2{
+    position: relative;
+    padding: 2px !important;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: conic-gradient(#00000000 0deg, #FFF500 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circular-progress3{
+    position: relative;
+    padding: 2px !important;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: conic-gradient(#00000000 0deg, #ffffff 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.progress-value{
+    position: relative;
+}

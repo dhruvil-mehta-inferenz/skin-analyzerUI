@@ -8,21 +8,27 @@ export default function Overview() {
 
   let circularProgress = document.getElementsByClassName('circular-progress');
   let progressValue = document.getElementsByClassName('progress-value');
-  let progStart = 0;
-  let progEnd = 85;
   let speed = 10;
+  
+  
+  function overviewHealthProgress(_ovPercentage) {
+    let progStart = 0;
+    
+    let progress = setInterval(() => {
+      progStart++;
+      progressValue[0].textContent = `${progStart} %`;
+      circularProgress[0].style.background = `conic-gradient(#FFF500 ${progStart * 3.6}deg, #ededed 0deg)`;
+      circularProgress[0].style.boxShadow = `0px 0px 35px -13px rgba(255, 245, 0, 0.75) `;
+      if (progStart === _ovPercentage) {
+        clearInterval(progress)
+      }
+    }, speed);
+  }
+    
 
+  overviewHealthProgress(43);
 
-  let progress = setInterval(() => {
-    progStart++;
-    progressValue[0].textContent = `${progStart} %`;
-    circularProgress[0].style.background = `conic-gradient(#FFF500 ${progStart * 3.6}deg, #ededed 0deg)`;
-    circularProgress[0].style.boxShadow = `0px 0px 35px -13px rgba(255, 245, 0, 0.75) `;
-    if (progStart === progEnd) {
-      clearInterval(progress)
-    }
-  }, speed);
-
+  
   return (
     <>
       <div className="row bor OverViewCards">
@@ -46,15 +52,15 @@ export default function Overview() {
                 </p>
                 <p className='mb-1 overViewDate'>Date</p>
               </div>
-              <div className="myH3 flex-row">Skin Health Is <a className="OV_skinType"> Average</a></div>
+              <div className="myH3 flex-row">Skin Health Is <span className="OV_skinType"> Average</span></div>
               <div className="mt-2 myH4 d-flex align-items-end flex-row">
                 <p>
-                  <a className="OV_darkSpot">Dark Spot </a>
-                  <a className="OV_wrinlkes">Wrinkles </a>
-                  <a className="OV_openPores">Open Pores </a>
-                  <a className="OV_darkCircles">Dark Circles </a>
-                  <a className="OV_pigmentation">Pigmentation </a>
-                  <a className="OV_acne">Acene </a>
+                  <span className="OV_darkSpot">Dark Spot </span>
+                  <span className="OV_wrinlkes">Wrinkles </span>
+                  <span className="OV_openPores">Open Pores </span>
+                  <span className="OV_darkCircles">Dark Circles </span>
+                  <span className="OV_pigmentation">Pigmentation </span>
+                  <span className="OV_acne">Acene </span>
                 </p>
               </div>
             </div>

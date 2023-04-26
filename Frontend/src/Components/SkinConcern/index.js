@@ -20,23 +20,41 @@ export default function SkinConcern() {
                 },
                 borderColor: "0.2px solid ",
                 borderWidth: 1,
+                
 
             },
-        ], 
-        scale: {
-            ticks: {
-                callback: function () { return "" },
-                backdropColor: "rgba(0, 0, 0, 0)"
-            }
-        }
-
+        ],
     };
+
+    const options = {
+
+        scales: {
+            r: {
+                grid: {
+                    display: false,
+                },
+                angleLines: {
+                    display: true,
+                },
+                pointLabels: {
+                    display: true // Hides the labels around the radar chart
+                },
+                ticks: {
+                    display: false, // Hides the labels in the middel (numbers)
+                },
+                
+
+            },
+        },
+        responsive: true,
+        maintainAspectRatio: true
+    }
     return (
         <>
             <div className="container-fluid SK_Main">
                 <h5 className='d-flex justify-content-center p-1'>Your Skin Concern</h5>
                 <div className="container-fluid bor SK_Concren_Chart ">
-                    <Radar data={data} />
+                    <Radar data={data} options={options} />
                 </div>
             </div>
         </>

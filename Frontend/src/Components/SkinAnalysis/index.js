@@ -67,7 +67,7 @@ export default function SkinAnalysis() {
       <div className="container-fluid bor">
         <div className="col-md-12">
           <div className="row d-flex justify-content-center">
-            <div className="col-md-4 bor w-25 p-1">
+            <div className="col-md-4 bor w-25">
               <div className="SA1_CP1">
                 <div className="SA1_CP2">
                   <div className="SA1_CP3">
@@ -76,6 +76,9 @@ export default function SkinAnalysis() {
                     </span>
                   </div>
                 </div>
+              </div>
+              <div className="d-flex justify-content-center SA_texts">
+                Wrinkles
               </div>
             </div>
             <div className="col-md-4 bor w-25">
@@ -88,6 +91,9 @@ export default function SkinAnalysis() {
                   </div>
                 </div>
               </div>
+              <div className="d-flex justify-content-center SA_texts">
+                Acne
+              </div>
             </div>
             <div className="col-md-4 bor w-25">
               <div className="SA3_CP1">
@@ -99,12 +105,15 @@ export default function SkinAnalysis() {
                   </div>
                 </div>
               </div>
+              <div className="d-flex justify-content-center SA_texts">
+                Pigmentation
+              </div>
             </div>
           </div>
         </div>
         <div className="col-md-12">
-          <div className="row d-flex justify-content-center">
-            <div className="col-md-4 bor w-25 p-1">
+          <div className="row d-flex justify-content-center SA_texts">
+            <div className="col-md-4 bor w-25">
               <div className="SA4_CP1">
                 <div className="SA4_CP2">
                   <div className="SA4_CP3">
@@ -113,6 +122,9 @@ export default function SkinAnalysis() {
                     </span>
                   </div>
                 </div>
+              </div>
+              <div className="d-flex justify-content-center SA_texts">
+                Dark Circles
               </div>
             </div>
             <div className="col-md-4 bor w-25">
@@ -125,6 +137,9 @@ export default function SkinAnalysis() {
                   </div>
                 </div>
               </div>
+              <div className="d-flex justify-content-center SA_texts">
+                Open Pores
+              </div>
             </div>
             <div className="col-md-4 bor w-25">
               <div className="SA6_CP1">
@@ -135,6 +150,9 @@ export default function SkinAnalysis() {
                     </span>
                   </div>
                 </div>
+              </div>
+              <div className="d-flex justify-content-center SA_texts">
+                Dark Spots
               </div>
             </div>
           </div>

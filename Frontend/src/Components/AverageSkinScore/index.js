@@ -5,7 +5,7 @@ export default function AverageSkinScore() {
     return (
         <>
             <div className="row bor ASC_Cards">
-               
+
                 <div className="d-flex col-md-9 bor">
                     <div className="d-flex col-md-12 row">
                         <div className="flex-row">
@@ -16,10 +16,22 @@ export default function AverageSkinScore() {
                                 <p className='mb-1'></p>
                             </div>
                             <div className="myH3 flex-row"></div>
-                            <div className="mt-2 myH4 flex-row">
-                                <div className="d-flex flex-row">Dark Spot 04</div>
-                                <div className="d-flex flex-row">Open Pores 02</div>
-                                <div className="d-flex flex-row">Dark Circles 01</div>
+                            <div className="mt-2 myH4">
+                                <div className="row">
+                                    <div className="col-md-4">
+                                        <div className="">Dark Spot <b> 04</b></div>
+                                        <div className="">Open Pores <b> 02</b></div>
+                                        <div className="">Dark Circles <b> 01</b></div>
+                                    </div>
+
+                                    <div className="col-md-4">
+                                        <div className="">Pigmentation <b> 01</b></div>
+                                        <div className="">Acne <b> 02</b></div>
+                                        <div className="">Wrinkles <b> 10</b></div>
+                                    </div>
+
+
+                                </div>
                             </div>
                         </div>
                     </div>

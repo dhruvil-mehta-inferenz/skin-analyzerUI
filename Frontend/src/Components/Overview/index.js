@@ -17,11 +17,12 @@ export default function Overview() {
     progStart++;
     progressValue[0].textContent = `${progStart} %`;
     circularProgress[0].style.background = `conic-gradient(#FFF500 ${progStart * 3.6}deg, #ededed 0deg)`;
+    circularProgress[0].style.boxShadow = `0px 0px 35px -13px rgba(255, 245, 0, 0.75) `;
     if (progStart === progEnd) {
       clearInterval(progress)
     }
   }, speed);
-  
+
   return (
     <>
       <div className="row bor OverViewCards">
@@ -36,7 +37,7 @@ export default function Overview() {
             </div>
           </div>
         </div>
-        <div className="d-flex col-md-9 bor">
+        <div className="d-flex col-md-7 bor">
           <div className="d-flex col-md-12 row">
             <div className="flex-row">
               <div className="mt-2 flex-row">
@@ -45,12 +46,33 @@ export default function Overview() {
                 </p>
                 <p className='mb-1 overViewDate'>Date</p>
               </div>
-              <div className="myH3 flex-row">Skin Health Is Average</div>
+              <div className="myH3 flex-row">Skin Health Is <a className="OV_skinType"> Average</a></div>
               <div className="mt-2 myH4 d-flex align-items-end flex-row">
                 <p>
-                  Dark Spot, Wrinkles, Open Pores, Dark Circles, Pigmentation, Acene
+                  <a className="OV_darkSpot">Dark Spot </a>
+                  <a className="OV_wrinlkes">Wrinkles </a>
+                  <a className="OV_openPores">Open Pores </a>
+                  <a className="OV_darkCircles">Dark Circles </a>
+                  <a className="OV_pigmentation">Pigmentation </a>
+                  <a className="OV_acne">Acene </a>
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-2 bor d-flex">
+          <div className="align-self-center bor" >
+            <div className="bor d-flex align-items-center">
+              <div className="severeIcon"></div>
+              <div className="severeText mx-1">Severe</div>
+            </div>
+            <div className="bor d-flex align-items-center">
+              <div className="moderateIcon"></div>
+              <div className="moderateText mx-1">Moderate</div>
+            </div>
+            <div className="bor d-flex align-items-center">
+              <div className="mildIcon"></div>
+              <div className="mildText mx-1">Mild</div>
             </div>
           </div>
         </div>

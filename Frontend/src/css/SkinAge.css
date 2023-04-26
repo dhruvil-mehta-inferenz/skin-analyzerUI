@@ -4,3 +4,8 @@
     border-radius: 10px;
     background: #FFFFFF;
 }
+.needle circle{
+    fill: #fff;
+    stroke-width: 1;
+    stroke: #FFF500;
+}

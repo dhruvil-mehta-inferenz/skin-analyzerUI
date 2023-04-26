@@ -1,7 +1,12 @@
+.SA_texts{
+    font-size: 10px;
+    font-weight: 400;
+}
+
 .SA1_CP1{
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: conic-gradient(#00ff00 18.2deg, #ededed 0deg);
     display: flex;
@@ -12,8 +17,8 @@
 .SA1_CP1::before{
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -21,8 +26,8 @@
 .SA1_CP2{
     position: relative;
     padding: 2px !important;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #00ff00 0deg);
     display: flex;
@@ -32,8 +37,8 @@
 .SA1_CP3{
     position: relative;
     padding: 2px !important;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #ffffff 0deg);
     display: flex;
@@ -52,8 +57,8 @@
 
 .SA2_CP1{
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: conic-gradient(#2A98DE 18.2deg, #ededed 0deg);
     display: flex;
@@ -64,8 +69,8 @@
 .SA2_CP1::before{
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -73,8 +78,8 @@
 .SA2_CP2{
     position: relative;
     padding: 2px !important;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #2A98DE 0deg);
     display: flex;
@@ -84,8 +89,8 @@
 .SA2_CP3{
     position: relative;
     padding: 2px !important;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #ffffff 0deg);
     display: flex;
@@ -106,8 +111,8 @@
 
 .SA3_CP1{
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: conic-gradient(#D8004F 18.2deg, #ededed 0deg);
     display: flex;
@@ -118,8 +123,8 @@
 .SA3_CP1::before{
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -127,8 +132,8 @@
 .SA3_CP2{
     position: relative;
     padding: 2px !important;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #D8004F 0deg);
     display: flex;
@@ -138,8 +143,8 @@
 .SA3_CP3{
     position: relative;
     padding: 2px !important;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #ffffff 0deg);
     display: flex;
@@ -158,8 +163,8 @@
 
 .SA4_CP1{
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: conic-gradient(#9500D7 18.2deg, #ededed 0deg);
     display: flex;
@@ -170,8 +175,8 @@
 .SA4_CP1::before{
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -179,8 +184,8 @@
 .SA4_CP2{
     position: relative;
     padding: 2px !important;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #9500D7 0deg);
     display: flex;
@@ -190,8 +195,8 @@
 .SA4_CP3{
     position: relative;
     padding: 2px !important;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #ffffff 0deg);
     display: flex;
@@ -208,8 +213,8 @@
 
 .SA5_CP1{
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: conic-gradient(#7367FF 18.2deg, #ededed 0deg);
     display: flex;
@@ -220,8 +225,8 @@
 .SA5_CP1::before{
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -229,8 +234,8 @@
 .SA5_CP2{
     position: relative;
     padding: 2px !important;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #7367FF 0deg);
     display: flex;
@@ -240,8 +245,8 @@
 .SA5_CP3{
     position: relative;
     padding: 2px !important;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #ffffff 0deg);
     display: flex;
@@ -258,8 +263,8 @@
 
 .SA6_CP1{
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: conic-gradient(#FF7A00 18.2deg, #ededed 0deg);
     display: flex;
@@ -270,8 +275,8 @@
 .SA6_CP1::before{
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -279,8 +284,8 @@
 .SA6_CP2{
     position: relative;
     padding: 2px !important;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #FF7A00 0deg);
     display: flex;
@@ -290,8 +295,8 @@
 .SA6_CP3{
     position: relative;
     padding: 2px !important;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: conic-gradient(#00000000 0deg, #ffffff 0deg);
     display: flex;

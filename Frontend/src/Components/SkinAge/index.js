@@ -1,28 +1,31 @@
-import React from 'react'
-import '../../css/SkinAge.css';
+import React, { useEffect, useState } from 'react'
+import '../../css/Browser/SkinAge.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import GaugeChart from 'react-gauge-chart'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function SkinAge() {
-    setTimeout(() => {
-        let check = document.getElementById('gauge-chart1')
-        check.style.height = '0px';
-    }, 20);
+    const [gaugeHeight, setGaugeHeight] = useState({
+        height: "auto"
+    });
 
-    const chartStyle = {
-        height: 200,
-        width: 200,
-    }
+    useEffect(() => {
+        
+            setTimeout(() => {
+                setGaugeHeight({
+                    height: "auto"
+                })
+            }, 10);
+    }, [])
     return (
         <>
-            <div className="row bor SkinAgeCards">
-                <div className="d-flex col-md-3 justify-content-center">
-                    <GaugeChart id="gauge-chart1" needleColor="#ffff00" colors={['#ffff00', '#ffff00', '#ffff00']} nrOfLevels={3} arcsLength={[0.3, 0.4, 0.3]} arcWidth={0.3} style={chartStyle} hideText={true} />
+            <div className="d-flex bor SkinAgeCards">
+                <div className="d-flex col-md-3 col-4 justify-content-center align-items-center">
+                <GaugeChart id="gauge-chart1" className='py-3' needleColor="#ffff00" colors={['#ffff00', '#ffff00', '#ffff00']} style={gaugeHeight} nrOfLevels={10} arcsLength={[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]} arcWidth={0.3} hideText={true}/>
                 </div>
-                <div className="d-flex col-md-9 bor">
-                    <div className="d-flex col-md-12 row">
+                <div className="d-flex col-md-9 col-8 bor">
+                    <div className="d-flex col-md-12 col-12">
                         <div className="flex-row">
                             <div className="mt-2 flex-row">
                                 <p className='myH3 mb-0'>

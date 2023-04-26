@@ -1,7 +1,7 @@
 import React from 'react'
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, registerables } from 'chart.js';
-import "../../css/SkinConcern.css"
+import "../../css/Browser/SkinConcern.css"
 ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, ...registerables);
 
 export default function SkinConcern() {
@@ -13,21 +13,26 @@ export default function SkinConcern() {
                 data: [8, 8, 8, 8, 8, 8],
                 backgroundColor: (context) => {
                     const ctx = context.chart.ctx;
-                    const gradient = ctx.createLinearGradient(0, 0, 0, 325);
-                    gradient.addColorStop(0, "rgba(250,0,0,1)");
-                    gradient.addColorStop(1, "rgba(0,0,255,1)");
+                    const gradient = ctx.createLinearGradient(0, 0, 0,200);
+                    gradient.addColorStop(0, "rgba(250,0,0,0.66)");
+                    gradient.addColorStop(1, "rgba(0,0,255,0.77)");
                     return gradient;
                 },
                 borderColor: "0.2px solid ",
                 borderWidth: 1,
-                
+
 
             },
         ],
     };
 
     const options = {
-
+        plugins: {
+            legend: {
+                display: false,
+                // usePointStyle: false,
+            },
+        },
         scales: {
             r: {
                 grid: {
@@ -37,12 +42,18 @@ export default function SkinConcern() {
                     display: true,
                 },
                 pointLabels: {
-                    display: true // Hides the labels around the radar chart
+                    display: true,// Hides the labels around the radar chart
+                    font: {
+                        size: 8,
+                        weight: 700,
+                        // family:'Helvetica'
+                        style: 'italic'
+                    },
                 },
                 ticks: {
                     display: false, // Hides the labels in the middel (numbers)
                 },
-                
+
 
             },
         },

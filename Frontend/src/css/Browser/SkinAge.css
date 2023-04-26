@@ -1,0 +1,16 @@
+.SkinAgeCards{
+    min-height: 100px;
+    box-shadow: 0px 0px 35px -13px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+.needle circle{
+    fill: #fff;
+    stroke-width: 1;
+    stroke: #FFF500;
+}
+#gauge-chart1 {
+    width: 100%;
+    min-width: 150px;
+    min-height: 50px;
+}

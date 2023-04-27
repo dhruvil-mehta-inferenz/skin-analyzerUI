@@ -1,6 +1,6 @@
 import React from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import '../../css/SkinAnalysis.css'
+import '../../css/Browser/SkinAnalysis.css'
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);

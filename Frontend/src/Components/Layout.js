@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Layout.css'
+import '../css/Browser/Layout.css'
 import Overview from './Overview'
 import SkinAge from './SkinAge'
 import AverageSkinScore from './AverageSkinScore'

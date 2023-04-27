@@ -7,6 +7,7 @@ export default function ResultView() {
                 <h5 className='d-flex justify-content-center p-1'>RESULT VIEW</h5>
                 <div className="container-fluid bor SK_Concren_Chart ">
                 </div>
-            </div></>
+            </div>
+        </>
     )
 }

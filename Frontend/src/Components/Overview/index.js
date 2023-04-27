@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../css/Overview.css'
+import '../../css/Browser/Overview.css'
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 

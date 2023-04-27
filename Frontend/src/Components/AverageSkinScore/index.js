@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../css/AverageSkinScore.css';
+import '../../css/Browser/AverageSkinScore.css';
 
 export default function AverageSkinScore() {
     return (

@@ -1,34 +1,27 @@
 import React from 'react'
-import '../../css/Browser/SkinAge.css';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import GaugeChart from 'react-gauge-chart'
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-export default function SkinAge() {
+export default function mobileIndex() {
     setTimeout(() => {
         let check = document.getElementById('gauge-chart1')
-        check.style.height = '0px';
+        check.removeAttribute('height')
     }, 20);
 
     const chartStyle = {
-        height: 200,
-        width: 200,
+        width: '55%',
     }
     return (
         <>
-            <div className="row bor SkinAgeCards">
-                <div className="d-flex col-md-3 justify-content-center">
+            <div className="d-flex bor SkinAgeCards">
+                <div className="d-flex align-items-center col-md-3 bor p-2">
                     <GaugeChart id="gauge-chart1" needleColor="#ffff00" colors={['#ffff00', '#ffff00', '#ffff00']} nrOfLevels={3} arcsLength={[0.3, 0.4, 0.3]} arcWidth={0.3} style={chartStyle} hideText={true} />
                 </div>
-                <div className="d-flex col-md-9 bor">
-                    <div className="d-flex col-md-12 row">
-                        <div className="flex-row">
+                <div className="col-md-9 bor">
+                <div className="flex-row">
                             <div className="mt-2 flex-row">
                                 <p className='myH3 mb-0'>
                                     Skin Age:
                                 </p>
-                                <p className='mb-1'></p>
                             </div>
                             <div className="myH3 flex-row"></div>
                             <div className="mt-2 myH4 d-flex align-items-end flex-row">
@@ -37,7 +30,6 @@ export default function SkinAge() {
                                 </p>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </>

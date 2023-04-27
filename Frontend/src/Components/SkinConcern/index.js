@@ -1,7 +1,7 @@
 import React from 'react'
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, registerables } from 'chart.js';
-import "../../css/SkinConcern.css"
+import "../../css/Browser/SkinConcern.css"
 ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, ...registerables);
 
 export default function SkinConcern() {

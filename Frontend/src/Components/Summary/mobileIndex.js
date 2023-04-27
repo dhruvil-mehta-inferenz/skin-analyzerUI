@@ -1,8 +1,6 @@
 import React from 'react'
-import '../../css/Browser/Summary.css';
 
-
-export default function Summary() {
+export default function mobileIndex() {
     return (
         <>
             <div className="summaryMain mt-3 bor">

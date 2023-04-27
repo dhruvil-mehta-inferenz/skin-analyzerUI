@@ -2,33 +2,15 @@ import React from 'react'
 import '../../css/Browser/Overview.css'
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { overviewHealthProgress } from '../../Utils/ProgressBars/progressData';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Overview() {
-
-  let circularProgress = document.getElementsByClassName('circular-progress');
-  let progressValue = document.getElementsByClassName('progress-value');
-  let speed = 10;
   
-  
-  function overviewHealthProgress(_ovPercentage) {
-    let progStart = 0;
-    
-    let progress = setInterval(() => {
-      progStart++;
-      progressValue[0].textContent = `${progStart} %`;
-      circularProgress[0].style.background = `conic-gradient(#FFF500 ${progStart * 3.6}deg, #ededed 0deg)`;
-      circularProgress[0].style.boxShadow = `0px 0px 35px -13px rgba(255, 245, 0, 0.75) `;
-      if (progStart === _ovPercentage) {
-        clearInterval(progress)
-      }
-    }, speed);
-  }
-    
-
+  //Funciton for overView progress bar
   overviewHealthProgress(43);
 
-  
+
   return (
     <>
       <div className="row bor OverViewCards">

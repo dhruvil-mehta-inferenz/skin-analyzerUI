@@ -6,6 +6,7 @@ import AverageSkinScore from './AverageSkinScore'
 import SkinAnalysis from './SkinAnalysis'
 import SkinConcern from './SkinConcern'
 import Summary from './Summary'
+import ResultView from './ResultView/inedx'
 
 export default function Layout() {
     return (
@@ -33,7 +34,9 @@ export default function Layout() {
                             <div className="col-md-7 bor ">
                                 <SkinConcern/>
                             </div>
-                            <div className="col-md-5 d-flex justify-content-center">Camera</div>
+                            <div className="col-md-5 d-flex justify-content-center">
+                                <ResultView/>
+                            </div>
                         </div>
                         <div className="row">
                             <div className="container-fluid">

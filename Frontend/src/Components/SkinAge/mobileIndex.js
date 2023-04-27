@@ -1,5 +1,6 @@
 import React from 'react'
 import GaugeChart from 'react-gauge-chart'
+import "../../css/Mobile/SkinAge.css"
 
 export default function mobileIndex() {
     setTimeout(() => {

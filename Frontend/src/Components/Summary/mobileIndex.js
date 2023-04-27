@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../css/Mobile/Summary.css"
 
 export default function mobileIndex() {
     return (

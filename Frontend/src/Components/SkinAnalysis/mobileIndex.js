@@ -1,4 +1,6 @@
 import React from 'react'
+import "../../css/Mobile/SkinAnalysis.css"
+
 
 export default function mobileIndex() {
     let cp1 = document.getElementsByClassName('SA1_CP1');

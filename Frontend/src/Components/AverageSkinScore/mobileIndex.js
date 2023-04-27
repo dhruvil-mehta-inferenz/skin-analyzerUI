@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../css/Mobile/AverageSkinScore.css"
 
 export default function mobileIndex() {
     return (

@@ -18,6 +18,13 @@ let pv5 = document.getElementsByClassName('SA5_PV1');
 
 let cp6 = document.getElementsByClassName('SA6_CP1');
 let pv6 = document.getElementsByClassName('SA6_PV1');
+
+let cpCV1 = document.getElementsByClassName('CV1_CP1');
+
+let cpCV2 = document.getElementsByClassName('CV2_CP1');
+
+let cpCV3 = document.getElementsByClassName('CV3_CP1');
+
 let speed = 10;
 
 
@@ -117,6 +124,48 @@ function darkSpotsProgress(_aPercentage) {
   }, speed);
 }
 
+function lightingProgress(_aPercentage) {
+  setTimeout(() => {
+    
+    let progStart = 0;
+    let cvP = setInterval(() => {
+      progStart++;
+      cpCV1[0].style.background = `conic-gradient(#FF0000 ${progStart * 3.6}deg, #ededed 0deg)`;
+      if (progStart === _aPercentage) {
+        clearInterval(cvP)
+      }
+    }, speed);
+  }, 20);
+}
+
+function lookStraightProgress(_aPercentage) {
+  setTimeout(() => {
+    
+    let progStart = 0;
+    let cvP1 = setInterval(() => {
+      progStart++;
+      cpCV2[0].style.background = `conic-gradient(#FFF500 ${progStart * 3.6}deg, #ededed 0deg)`;
+      if (progStart === _aPercentage) {
+        clearInterval(cvP1)
+      }
+    }, speed);
+  }, 20);
+}
+
+function facePositionProgress(_aPercentage) {
+  setTimeout(() => {
+    
+    let progStart = 0;
+    let cvP2 = setInterval(() => {
+      progStart++;
+      cpCV3[0].style.background = `conic-gradient(#38D800 ${progStart * 3.6}deg, #ededed 0deg)`;
+      if (progStart === _aPercentage) {
+        clearInterval(cvP2)
+      }
+    }, speed);
+  }, 20);
+}
+
 export {
   overviewHealthProgress,
   wrinkleProgress,
@@ -125,4 +174,7 @@ export {
   darkCirclesProgress,
   openPoresProgress,
   darkSpotsProgress,
+  lightingProgress,
+  lookStraightProgress,
+  facePositionProgress
 }

@@ -25,7 +25,7 @@ export default function Layout() {
                                 <AverageSkinScore/>
                             </div>
                         </div>
-                        <div className="mt-2">
+                        <div className="row mt-2">
                             <SkinAnalysis/>
                         </div>
                     </div>

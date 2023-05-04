@@ -16,8 +16,8 @@ export default function SkinAnalysis() {
   darkSpotsProgress(65);
   return (
     <>
-      <h5 className='d-flex justify-content-center'>Your Skin Analysis</h5>
-      <div className="container-fluid bor">
+      <h5 className='row d-flex justify-content-center'>Your Skin Analysis</h5>
+      <div className="row container-fluid bor">
         <div className="col-md-12">
           <div className="row d-flex justify-content-center">
             <div className="col-md-4 bor w-25">

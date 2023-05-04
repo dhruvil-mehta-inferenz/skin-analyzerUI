@@ -22,7 +22,7 @@ export default function SkinAge() {
                     <GaugeChart id="gauge-chart1" needleColor="#ffff00" colors={['#ffff00', '#ffff00', '#ffff00']} nrOfLevels={3} arcsLength={[0.3, 0.4, 0.3]} arcWidth={0.3} style={chartStyle} hideText={true} />
                 </div>
                 <div className="d-flex col-md-9 bor">
-                    <div className="d-flex col-md-12 row">
+                    <div className="d-flex col-md-12">
                         <div className="flex-row">
                             <div className="mt-2 flex-row">
                                 <p className='myH3 mb-0'>

@@ -17,7 +17,7 @@ export default function CameraView() {
                     <div className="d-flex justify-content-evenly" style={{ position: "absolute", top: '80%' }}>
                         <div className="row w-50 ">
                             <div className="col-4 ">
-                                <div className="d-flex justify-content-between align-items-center featuresDiv">
+                                <div className="d-flex justify-content-between align-items-center featuresDiv p-2">
                                     <div className="col-md-4 bor px-1">
                                         <div className="CV1_CP1">
                                             <div className="CV1_CP2">
@@ -34,7 +34,7 @@ export default function CameraView() {
                                 </div>
                             </div>
                             <div className="col-4 ">
-                                <div className="d-flex justify-content-center align-items-center featuresDiv">
+                                <div className="d-flex justify-content-between align-items-center featuresDiv p-2">
                                     <div className="col-md-4 bor">
                                         <div className="CV2_CP1">
                                             <div className="CV2_CP2">
@@ -51,7 +51,7 @@ export default function CameraView() {
                                 </div>
                             </div>
                             <div className="col-4 ">
-                                <div className="d-flex justify-content-center align-items-center featuresDiv">
+                                <div className="d-flex justify-content-between align-items-center featuresDiv p-2">
                                 <div className="col-md-4 bor">
                                         <div className="CV3_CP1">
                                             <div className="CV3_CP2">

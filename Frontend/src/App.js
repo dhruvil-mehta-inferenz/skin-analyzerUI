@@ -8,14 +8,14 @@ import MobileCameraView from './Components/MobileCameraView';
 function App() {
   if (isMobile) {
     return (
-      // <MobileLayout />
-      <MobileCameraView/>
+      <MobileLayout />
+      // <MobileCameraView/>
     )
   }
   else if (isBrowser) {
     return (
-      // <Layout />
-      <CameraView/>
+      <Layout />
+      // <CameraView/>
     )
   }
 }

@@ -26,9 +26,9 @@ export default function Overview() {
           </div>
         </div>
         <div className="d-flex col-md-7 bor">
-          <div className="d-flex col-md-12 row">
+          <div className="d-flex col-md-12">
             <div className="flex-row">
-              <div className="mt-2 flex-row">
+              <div className="mt-2">
                 <p className='myH3 mb-0'>
                   Overview
                 </p>

@@ -39,6 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: rotate(180deg);
 }
 
 .CV1_CP1::before{
@@ -86,6 +87,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: rotate(90deg);
 }
 
 .CV2_CP1::before{

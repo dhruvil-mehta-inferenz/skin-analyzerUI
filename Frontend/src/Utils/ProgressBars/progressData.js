@@ -3,12 +3,18 @@ let progressValue = document.getElementsByClassName('progress-value');
 
 let cp1 = document.getElementsByClassName('SA1_CP1');
 let pv1 = document.getElementsByClassName('SA1_PV1');
+let cpCV1CP2 = document.getElementsByClassName('CV1_CP2');
+
 
 let cp2 = document.getElementsByClassName('SA2_CP1');
 let pv2 = document.getElementsByClassName('SA2_PV1');
+let cpCV2CP2 = document.getElementsByClassName('CV2_CP2');
+
 
 let cp3 = document.getElementsByClassName('SA3_CP1');
 let pv3 = document.getElementsByClassName('SA3_PV1');
+let cpCV3CP2 = document.getElementsByClassName('CV3_CP2');
+
 
 let cp4 = document.getElementsByClassName('SA4_CP1');
 let pv4 = document.getElementsByClassName('SA4_PV1');
@@ -24,6 +30,12 @@ let cpCV1 = document.getElementsByClassName('CV1_CP1');
 let cpCV2 = document.getElementsByClassName('CV2_CP1');
 
 let cpCV3 = document.getElementsByClassName('CV3_CP1');
+
+
+let lgScore = document.getElementsByClassName('lightningScore');
+let lsScore = document.getElementsByClassName('lookstraightScore');
+let fpScore = document.getElementsByClassName('facepositionScore');
+
 
 let speed = 10;
 
@@ -124,45 +136,27 @@ function darkSpotsProgress(_aPercentage) {
   }, speed);
 }
 
-function lightingProgress(_aPercentage) {
+function lightingProgress(_aPercentage, _LightScore, _backgroundColor = '#FF0000') {
   setTimeout(() => {
-    
-    let progStart = 0;
-    let cvP = setInterval(() => {
-      progStart++;
-      cpCV1[0].style.background = `conic-gradient(#FF0000 ${progStart * 3.6}deg, #ededed 0deg)`;
-      if (progStart === _aPercentage) {
-        clearInterval(cvP)
-      }
-    }, speed);
+    cpCV1[0].style.background = `conic-gradient(${_backgroundColor} ${_aPercentage * 3.6}deg, #ededed 0deg)`;
+    cpCV1CP2[0].style.background = `conic-gradient(#00000000 0deg, ${_backgroundColor} 0deg)`;
+    lgScore[0].textContent = _LightScore
   }, 20);
 }
 
-function lookStraightProgress(_aPercentage) {
+function lookStraightProgress(_aPercentage, _LookStraightScore, _backgroundColor = '#FF0000') {
   setTimeout(() => {
-    
-    let progStart = 0;
-    let cvP1 = setInterval(() => {
-      progStart++;
-      cpCV2[0].style.background = `conic-gradient(#FFF500 ${progStart * 3.6}deg, #ededed 0deg)`;
-      if (progStart === _aPercentage) {
-        clearInterval(cvP1)
-      }
-    }, speed);
+    cpCV2[0].style.background = `conic-gradient(${_backgroundColor} ${_aPercentage * 3.6}deg, #ededed 0deg)`;
+    cpCV2CP2[0].style.background = `conic-gradient(#00000000 0deg, ${_backgroundColor} 0deg)`;
+    lsScore[0].textContent = _LookStraightScore
   }, 20);
 }
 
-function facePositionProgress(_aPercentage) {
+function facePositionProgress(_aPercentage, _LookStraightScore, _backgroundColor = '#FF0000') {
   setTimeout(() => {
-    
-    let progStart = 0;
-    let cvP2 = setInterval(() => {
-      progStart++;
-      cpCV3[0].style.background = `conic-gradient(#38D800 ${progStart * 3.6}deg, #ededed 0deg)`;
-      if (progStart === _aPercentage) {
-        clearInterval(cvP2)
-      }
-    }, speed);
+    cpCV3[0].style.background = `conic-gradient(${_backgroundColor} ${_aPercentage * 3.6}deg, #ededed 0deg)`;
+    cpCV3CP2[0].style.background = `conic-gradient(#00000000 0deg, ${_backgroundColor} 0deg)`;
+    fpScore[0].textContent = _LookStraightScore
   }, 20);
 }
 

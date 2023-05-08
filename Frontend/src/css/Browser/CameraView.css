@@ -26,6 +26,13 @@
 .lightScore{
     font-size: 12px;
 }
+.gl_Canvas{
+    display: none;
+}
+.styleScore{
+    font-weight: 700;
+    font-size: 12px;
+}
 
 
 /**********************************************************************************/

@@ -1,9 +1,9 @@
 import './css/App.css'
-import Layout from './Components/Layout'
-import MobileLayout from './Components/MobileLayout'
+import Layout from './Components/Layout/Layout'
+import MobileLayout from './Components/Layout/MobileLayout'
 import { isBrowser, isMobile } from 'react-device-detect';
-import CameraView from './Components/CameraView';
-import MobileCameraView from './Components/MobileCameraView';
+import CameraView from './Components/Camera/CameraView';
+import MobileCameraView from './Components/Camera/MobileCameraView';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 

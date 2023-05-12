@@ -1,12 +1,12 @@
 import React from 'react'
-import '../css/Browser/Layout.css'
-import Overview from './Overview'
-import SkinAge from './SkinAge'
-import AverageSkinScore from './AverageSkinScore'
-import SkinAnalysis from './SkinAnalysis'
-import SkinConcern from './SkinConcern'
-import Summary from './Summary'
-import ResultView from './ResultView/inedx'
+import '../../css/Browser/Layout.css'
+import Overview from '../Overview'
+import SkinAge from '../SkinAge'
+import AverageSkinScore from '../AverageSkinScore'
+import SkinAnalysis from '../SkinAnalysis'
+import SkinConcern from '../SkinConcern'
+import Summary from '../Summary'
+import ResultView from '../ResultView/inedx'
 
 export default function Layout() {
     return (

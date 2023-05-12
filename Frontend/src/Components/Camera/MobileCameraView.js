@@ -1,5 +1,5 @@
 import React from 'react'
-import "../css/Mobile/CameraView.css"
+import "../../css/Mobile/CameraView.css"
 
 export default function MobileCameraView() {
 

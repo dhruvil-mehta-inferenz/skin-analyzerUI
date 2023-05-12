@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import { FaceMesh, FACEMESH_LEFT_IRIS } from '@mediapipe/face_mesh'
-import "../css/Browser/CameraView.css"
+import "../../css/Browser/CameraView.css"
 import * as cam from '@mediapipe/camera_utils'
 import Webcam from 'react-webcam'
-import { facePositionProgress, lightingProgress, lookStraightProgress } from '../Utils/ProgressBars/progressData';
-import faceBoxReference from '../Images/Face_reference.png';
-import { calculateBrightness, calculateFacePosition, calculateLookStraight } from '../Utils/ImageProcess/faceParameters'
-import { sendImages } from '../Utils/API'
+import { facePositionProgress, lightingProgress, lookStraightProgress } from '../../Utils/ProgressBars/progressData';
+import faceBoxReference from '../../Images/Face_reference.png';
+import { calculateBrightness, calculateFacePosition, calculateLookStraight } from '../../Utils/ImageProcess/faceParameters'
+import { sendImages } from '../../Utils/API'
 import {useNavigate} from 'react-router-dom'
 
 

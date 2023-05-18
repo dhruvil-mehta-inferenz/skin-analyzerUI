@@ -33,6 +33,19 @@
     font-weight: 700;
     font-size: 12px;
 }
+.countDownTimer {
+    position: absolute;
+    font-size: 10rem;
+    background: linear-gradient(#fdaba6 ,#d8004f 25%,#9500d7 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.confirmationDiv{
+    height: 60%;
+    background: #FFFFFF;
+    border-radius: 56px;
+    font-size: 12px;
+}
 
 
 /**********************************************************************************/

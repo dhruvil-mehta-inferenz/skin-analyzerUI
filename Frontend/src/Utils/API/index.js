@@ -2,8 +2,7 @@ import axios from 'axios';
 import { baseURL } from '../Config';
 
 
-
-async function sendImages(_base64) {
+async function SendImages(_base64) {
     const data = {
         user_uuid: "9ff2004d-544c-46e5-8032-2c9290b7012b",
         image: _base64,
@@ -22,5 +21,5 @@ async function sendImages(_base64) {
 }
 
 export {
-    sendImages
+    SendImages
 }

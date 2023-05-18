@@ -1,12 +1,12 @@
 import React from 'react'
 import "../../css/Mobile/SkinAnalysis.css"
-import { acneProgress, darkCirclesProgress, darkSpotsProgress, openPoresProgress, pigmentationProgress, wrinkleProgress } from '../../Utils/ProgressBars/progressData';
+import { acneProgress, darkCirclesProgress, darkSpotsProgress, openPoresProgress, pigmentationProgress, WrinkleProgress } from '../../Utils/ProgressBars/progressData';
 
 
 export default function mobileIndex() {
 
     //Functions For Progress Bars 
-    wrinkleProgress(95);
+    WrinkleProgress(95);
     acneProgress(35);
     pigmentationProgress(55);
     darkCirclesProgress(45);

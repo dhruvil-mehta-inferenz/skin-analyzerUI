@@ -1,25 +1,34 @@
-import React from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import '../../css/Browser/Overview.css'
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { overviewHealthProgress } from '../../Utils/ProgressBars/progressData';
+import mainContext from '../../Utils/States/indexContext';
+import ProgressBar from '../../Utils/ProgressBars/ProgressBar';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Overview() {
-  
-  //Funciton for overView progress bar
-  overviewHealthProgress(43);
+
+  const ref = useRef();
+  const getAllContext = useContext(mainContext);
+
+
+  useEffect(() => {
+    //Funciton for overView progress bar
+    ref.current.overviewFunction(10)
+  }, [])
+
 
 
   return (
     <>
+      <ProgressBar ref={ref} />
       <div className="row bor OverViewCards">
         <div className="d-flex col-md-3 p-1 justify-content-center align-items-center">
-          <div className="circular-progress">
+          <div className="circular-progress" style={{ background: `conic-gradient(#FFF500 ${getAllContext.getOverviewState[0] * 3.6}deg, #ededed 0deg)` }}>
             <div className="circular-progress2">
               <div className="circular-progress3">
                 <span className="progress-value" >
-                  0 %
+                  {getAllContext.getOverviewState[1]}
                 </span>
               </div>
             </div>

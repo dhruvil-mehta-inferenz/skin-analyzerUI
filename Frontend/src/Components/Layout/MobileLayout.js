@@ -1,11 +1,11 @@
 import React from 'react'
-import ResultView from '../ResultView/mobileIndex'
-import Overview from '../Overview/mobileIndex'
-import SkinAge from '../SkinAge/mobileIndex'
-import SkinAnalysis from '../SkinAnalysis/mobileIndex'
-import SkinConcern from '../SkinConcern/mobileIndex'
-import Summary from '../Summary/mobileIndex'
-import AverageSkinScore from '../AverageSkinScore/mobileIndex'
+import Overview from '../Overview'
+import SkinAge from '../SkinAge'
+import AverageSkinScore from '../AverageSkinScore'
+import SkinAnalysis from '../SkinAnalysis'
+import SkinConcern from '../SkinConcern'
+import Summary from '../Summary'
+import ResultView from '../ResultView/inedx'
 
 export default function MobileLayout() {
   return (

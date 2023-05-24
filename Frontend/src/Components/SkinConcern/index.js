@@ -20,14 +20,19 @@ export default function SkinConcern() {
                 },
                 borderColor: "0.2px solid ",
                 borderWidth: 1,
-                
+
 
             },
         ],
     };
 
     const options = {
-
+        plugins: {
+            legend: {
+                display: false,
+                // usePointStyle: false,
+            },
+        },
         scales: {
             r: {
                 grid: {
@@ -37,12 +42,18 @@ export default function SkinConcern() {
                     display: true,
                 },
                 pointLabels: {
-                    display: true // Hides the labels around the radar chart
+                    display: true,// Hides the labels around the radar chart
+                    font: {
+                        size: 8,
+                        weight: 700,
+                        // family:'Helvetica'
+                        style: 'italic'
+                    },
                 },
                 ticks: {
                     display: false, // Hides the labels in the middel (numbers)
                 },
-                
+
 
             },
         },

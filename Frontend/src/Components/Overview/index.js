@@ -4,6 +4,7 @@ import '../../css/Browser/Overview.css'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import mainContext from '../../Utils/States/indexContext';
 import ProgressBar from '../../Utils/ProgressBars/ProgressBar';
+import { isMobile } from 'react-device-detect';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Overview() {
@@ -22,8 +23,8 @@ export default function Overview() {
   return (
     <>
       <ProgressBar ref={ref} />
-      <div className="row bor OverViewCards">
-        <div className="d-flex col-md-3 p-1 justify-content-center align-items-center">
+      <div className="d-flex bor OverViewCards flex-wrap">
+        <div className="d-flex col-md-3  col-4 p-1 justify-content-center align-items-center">
           <div className="circular-progress" style={{ background: `conic-gradient(#FFF500 ${getAllContext.getOverviewState[0] * 3.6}deg, #ededed 0deg)` }}>
             <div className="circular-progress2">
               <div className="circular-progress3">
@@ -34,7 +35,7 @@ export default function Overview() {
             </div>
           </div>
         </div>
-        <div className="d-flex col-md-7 bor">
+        <div className="d-flex col-md-7 col-8  bor">
           <div className="d-flex col-md-12">
             <div className="flex-row">
               <div className="mt-2">
@@ -57,8 +58,8 @@ export default function Overview() {
             </div>
           </div>
         </div>
-        <div className="col-md-2 bor d-flex">
-          <div className="align-self-center bor" >
+        <div className="col-md-2 justify-content-center bor d-flex p-0">
+          <div className={`align-self-center ${isMobile ? "d-flex mx-5 my-1" : ""}`}>
             <div className="bor d-flex align-items-center">
               <div className="severeIcon"></div>
               <div className="severeText mx-1">Severe</div>

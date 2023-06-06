@@ -10,7 +10,7 @@ const CheckState = (props) => {
     const [getConfirmStateInverse, setConfirmStateInverse] = useState('');
     const [getCapturedImage, setCapturedImage] = useState('');
     const [counter, setCounter] = useState(4);
-    const [getAllFlag, getAllFLag] = useState(false)
+    const [getAllFlag, setAllFlag] = useState(false)
     const [getZState, setZState] = useState(0);
     const [getDisplayLoaderState, setDisplayLoaderState] = useState(['none', 'blur(0px)']);
     const [check, setCheck] = useState('');
@@ -36,7 +36,7 @@ const CheckState = (props) => {
             getConfirmState, setConfirmState,
             getCapturedImage, setCapturedImage,
             counter, setCounter,
-            getAllFlag, getAllFLag,
+            getAllFlag, setAllFlag,
             getZState, setZState,
             getDisplayLoaderState, setDisplayLoaderState,
             check, setCheck,

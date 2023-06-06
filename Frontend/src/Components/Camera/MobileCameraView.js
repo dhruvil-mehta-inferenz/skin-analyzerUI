@@ -12,13 +12,14 @@ import { calculateBrightness, calculateFacePosition, calculateLookStraight } fro
 import Webcam from 'react-webcam';
 
 export default function MobileCameraView() {
-    let getResults, getLandmarks, setBrightness, setLookStraight, setFacePosition, responseData, lightFlag = 0, lookFlag = 0, faceFlag = 0, isClicked = false;
+    let getResults, getLandmarks, setBrightness, setLookStraight, setFacePosition, responseData, lightFlag = 0, lookFlag = 0, faceFlag = 0, isClicked = false, canvasElement, canvasWithImgElement, canvasWithImgCtx, canvasCtx, imageData, loaderHeight = '100%';
     let imageFrame = document.getElementsByClassName('output_canvasMobile');
 
 
-    const webcamRef = useRef(null)
-    const canvasRef = useRef(null)
-    const canvasWithImage = useRef(null)
+    const webcamRef = useRef(null);
+    const canvasRef = useRef(null);
+    const canvasWithImage = useRef(null);
+    const A_name = useRef('');
     const navigate = useNavigate();
     const getAllContext = useContext(mainContext);
 
@@ -35,7 +36,7 @@ export default function MobileCameraView() {
         getAllContext.setFacePositionState([100, 'Good', '#38D800']);
         getAllContext.setCapturedImage('');
         getAllContext.setCounter(4);
-        getAllContext.getAllFLag(false);
+        getAllContext.setAllFlag(false);
         getAllContext.setRejectedState(false);
         getAllContext.setZState(0);
         getAllContext.setConfirmState('none');
@@ -75,6 +76,30 @@ export default function MobileCameraView() {
     function handleReject() {
         getAllContext.setRejectedState(true);
     }
+    // Stop the camera stream
+    function stopCamera() {
+        const video = document.getElementById("reactWebcam")
+        const stream = video.srcObject
+        stream.getTracks().forEach(function (track) {
+            track.stop();
+        });
+    }
+    const getImageBase64 = (_canvasCtx, _canvasWithImgCtx, _canvasElement, _canvasWithImgElement, _getResults) => {
+        _canvasWithImgCtx.clearRect(0, 0, _canvasWithImgElement.width, _canvasWithImgElement.height);
+        _canvasCtx.drawImage(_getResults.image, 0, 0, _canvasElement.width, _canvasElement.height);
+        const canvas = imageFrame[0];
+        const link = document.createElement('a');
+        link.download = 'canvas.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.8);
+        isClicked = true
+        getAllContext.setZState(0);
+        getAllContext.setConfirmState('flex');
+        getAllContext.setConfirmStateInverse('none');
+        getAllContext.setCapturedImage('' + link.href);
+        stopCamera();
+        _canvasCtx.drawImage(link.href, 0, 0, _canvasElement.width, _canvasElement.height);
+        return link.href;
+    };
     function onResults(_results) {
         getResults = _results;
 
@@ -84,10 +109,10 @@ export default function MobileCameraView() {
         canvasWithImage.current.width = webcamRef.current.video.videoWidth;
         canvasWithImage.current.height = webcamRef.current.video.videoHeight;
 
-        const canvasElement = canvasRef.current;
-        const canvasWithImgElement = canvasRef.current;
-        const canvasWithImgCtx = canvasWithImgElement.getContext('2d');
-        const canvasCtx = canvasElement.getContext('2d');
+        canvasElement = canvasRef.current;
+        canvasWithImgElement = canvasRef.current;
+        canvasWithImgCtx = canvasWithImgElement.getContext('2d');
+        canvasCtx = canvasElement.getContext('2d');
 
         canvasCtx.save();
         canvasWithImgCtx.save();
@@ -100,34 +125,6 @@ export default function MobileCameraView() {
 
         const imageData = canvasCtx.getImageData(0, 0, canvasElement.width, canvasElement.height);
 
-
-        const video = document.getElementById("reactWebcam")
-        const stream = video.srcObject
-
-        // Stop the camera stream
-        function stopCamera() {
-            stream.getTracks().forEach(function (track) {
-                track.stop();
-            });
-        }
-
-        const getImageBase64 = () => {
-            canvasWithImgCtx.clearRect(0, 0, canvasWithImgElement.width, canvasWithImgElement.height);
-            canvasCtx.drawImage(_results.image, 0, 0, canvasElement.width, canvasElement.height);
-            const canvas = imageFrame[0];
-            const link = document.createElement('a');
-            link.download = 'canvas.jpg';
-            link.href = canvas.toDataURL('image/jpeg', 0.8);
-            isClicked = true
-            getAllContext.setZState(0);
-            getAllContext.setConfirmState('flex');
-            getAllContext.setConfirmStateInverse('none');
-            getAllContext.setCapturedImage('' + link.href);
-            stopCamera();
-            canvasCtx.drawImage(link.href, 0, 0, canvasElement.width, canvasElement.height);
-            return link.href;
-        };
-
         if (_results.multiFaceLandmarks && _results.multiFaceLandmarks.length > 0) {
             for (const landmarks of _results.multiFaceLandmarks) {
                 getLandmarks = landmarks;
@@ -135,31 +132,12 @@ export default function MobileCameraView() {
 
             if ((lightFlag === 1) && (lookFlag === 1) && (faceFlag === 1)) {
                 getAllContext.setZState(1);
-                getAllContext.getAllFLag(true);
-                setTimeout(() => {
-                    isClicked = true;
-                }, 3000);
-
-                if (isClicked) {
-                    getImageBase64();
-                    lightFlag = 0;
-                    lookFlag = 0;
-                    faceFlag = 0;
-
-                    return
-                }
-            }
-            else {
-                //Getting Brightness
-                setBrightness = calculateBrightness(imageData.data);
-
-                //Getting Straight Look
-                setLookStraight = calculateLookStraight(getLandmarks, canvasElement);
-
-                //Getting Face Position
-                setFacePosition = calculateFacePosition(getLandmarks, getResults, FACEMESH_LEFT_IRIS);
+                getAllContext.setAllFlag(true);
             }
 
+            setBrightness = calculateBrightness(imageData.data);//Getting Brightness
+            setLookStraight = calculateLookStraight(getLandmarks, canvasElement);//Getting Straight Look
+            setFacePosition = calculateFacePosition(getLandmarks, getResults, FACEMESH_LEFT_IRIS);//Getting Face Position
 
             //Lighting Check
             if (setBrightness > 150 && setBrightness < 165) {
@@ -173,6 +151,10 @@ export default function MobileCameraView() {
             else if (setBrightness > 215 || setBrightness < 150) {
                 getAllContext.setBrightnessState([0, 'Not Good', '#FF0000']);
                 lightFlag = -1;
+                A_name.current = ""
+                getAllContext.setZState(0);
+                getAllContext.setCounter(3);
+                getAllContext.setAllFlag(false);
             }
 
 
@@ -188,6 +170,10 @@ export default function MobileCameraView() {
             else if (setLookStraight > 190 || setLookStraight < 165) {
                 getAllContext.setLookStraightState([0, 'Not Good', '#FF0000']);
                 lookFlag = -1
+                A_name.current = ""
+                getAllContext.setZState(0);
+                getAllContext.setCounter(3);
+                getAllContext.setAllFlag(false);
             }
 
 
@@ -199,8 +185,19 @@ export default function MobileCameraView() {
             else if (setFacePosition > 47 || setFacePosition < 42) {
                 getAllContext.setFacePositionState([0, 'Not Good', '#FF0000']);
                 faceFlag = -1;
+                A_name.current = ""
+                getAllContext.setZState(0);
+                getAllContext.setCounter(3);
+                getAllContext.setAllFlag(false);
             }
 
+
+            if (A_name.current === "1") {
+                getImageBase64(canvasCtx, canvasWithImgCtx, canvasElement, canvasWithImgElement, getResults);
+                lightFlag = 0;
+                lookFlag = 0;
+                faceFlag = 0;
+            }
         }
         else {
             console.log("Face Not found");
@@ -244,7 +241,12 @@ export default function MobileCameraView() {
     }, [getAllContext.getRejectedState])
 
     useEffect(() => {
-        getAllContext.counter > 0 && setTimeout(() => getAllContext.setCounter(getAllContext.counter - 1), 1000);
+        getAllContext.counter > 0 && setTimeout(() => {
+            getAllContext.setCounter(getAllContext.counter - 1);
+            if (getAllContext.counter === 1) {
+                A_name.current = "1"
+              }
+        }, 1000);
     }, [getAllContext.getAllFlag && getAllContext.counter]);
 
     return (
@@ -261,7 +263,7 @@ export default function MobileCameraView() {
                 <div className="CameraViewMainMobile mt-1">
                     <canvas ref={canvasRef} className='output_canvasMobile' style={{ filter: `${getAllContext.getDisplayLoaderState[1]}` }}  ></canvas>
                     <canvas ref={canvasWithImage} className='gl_Canvas'></canvas>
-                    <img src={pre_Loader} id='loaderId' style={{ display: `${getAllContext.getDisplayLoaderState[0]}`, position: 'absolute', height: '100%', width: '50%' }} className="justify-content-center" />
+                    <img src={pre_Loader} id='loaderId' style={{ display: `${getAllContext.getDisplayLoaderState[0]}`, position: 'absolute', height: loaderHeight, width: '50%'  }} className="justify-content-center" />
                     <div className="justify-content-center bor" style={{ display: `${getAllContext.getConfirmState}` }}>
                         <div className='col-md-6 mx-' >
                             <div className="d-flex justify-content-center align-items-center confirmationDiv bor" onClick={handleReject} style={{ cursor: 'pointer' }}>

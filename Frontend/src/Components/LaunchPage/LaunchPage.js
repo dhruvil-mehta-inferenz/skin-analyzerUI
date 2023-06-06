@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ImageUploading from 'react-images-uploading';
+import { isMobile } from 'react-device-detect';
 // import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 // import { baseURL } from '../../Utils/Config'
@@ -10,6 +11,7 @@ import "../../css/Browser/LaunchPage.css"
 
 export default function LaunchPage() {
     const [getDisplayLoaderState, setDisplayLoaderState] = useState(['none', 'blur(0px)']);
+    let loaderHeight = '100%'
     const navigate = useNavigate();
 
     async function sendImages(_base64) {
@@ -41,10 +43,13 @@ export default function LaunchPage() {
     function handleLive() {
         navigate('/Webcam');
     }
+    if (isMobile) {
+        loaderHeight = ''
+    }
     return (
         <>
             <div className="mainLaunchPage d-flex justify-content-center align-items-center bor">
-                <img src={pre_Loader} alt='' style={{ display: `${getDisplayLoaderState[0]}`, position: 'absolute', height: '100%', width: '50%' }} className="justify-content-center" />
+                <img src={pre_Loader} alt='' style={{ display: `${getDisplayLoaderState[0]}`, position: 'absolute', height: loaderHeight, width: '50%' ,zIndex: "1"}} className="justify-content-center" />
                 <div className="row centerDiv bor" style={{ filter: `${getDisplayLoaderState[1]}` }}>
                     <div className='bor d-flex justify-content-center align-items-center flex-row' onClick={handleLive}>
                         <button className='LiveTryON' >

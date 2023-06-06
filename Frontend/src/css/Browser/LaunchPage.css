@@ -1,0 +1,36 @@
+.mainLaunchPage{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.liveAnalysis{
+    border: solid 1px black;
+    width: 35%;
+    cursor: pointer;
+}
+.photoUpload{
+    border: solid 1px rgba(0, 0, 0, 0.063);
+    background: #EEEFF6;
+    border-radius: 19.702px;
+    cursor: pointer;
+    width: 160px;
+    height: 160px;
+}
+.LiveTryON{
+    border: solid 1px rgba(0, 0, 0, 0.063);
+    background: #EEEFF6;
+    border-radius: 19.702px;
+    cursor: pointer;
+    width: 160px;
+    height: 160px;
+}
+.centerDiv{
+    background-color: #ffffff;
+    border: 1px solid;
+    border-radius: 24px;
+    width: 433px;
+    height: 560px;
+    background-image: url('../../Images/LaunchPageBackground.png');
+}

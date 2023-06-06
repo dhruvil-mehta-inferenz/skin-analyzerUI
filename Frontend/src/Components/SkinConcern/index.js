@@ -13,9 +13,9 @@ export default function SkinConcern() {
                 data: [8, 8, 8, 8, 8, 8],
                 backgroundColor: (context) => {
                     const ctx = context.chart.ctx;
-                    const gradient = ctx.createLinearGradient(0, 0, 0, 325);
-                    gradient.addColorStop(0, "rgba(250,0,0,1)");
-                    gradient.addColorStop(1, "rgba(0,0,255,1)");
+                    const gradient = ctx.createLinearGradient(0, 0, 0,200);
+                    gradient.addColorStop(0, "rgba(250,0,0,0.66)");
+                    gradient.addColorStop(1, "rgba(0,0,255,0.77)");
                     return gradient;
                 },
                 borderColor: "0.2px solid ",

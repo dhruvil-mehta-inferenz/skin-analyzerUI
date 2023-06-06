@@ -28,13 +28,13 @@ export default function MobileLayout() {
           <ResultView resultedImage = {state._response}/>
         </div>
         <div className="mt-2 bor">
-          <Overview analyzedData={ state._response}/>
+          <SkinAnalysis resultedImage = {state._response}/>
         </div>
         <div className="mt-2 bor">
           <SkinAge resultedImage = {state._response}/>
         </div>
         <div className="mt-2 bor">
-          <SkinAnalysis resultedImage = {state._response}/>
+          <Overview analyzedData={ state._response}/>
         </div>
         <div className="mt-2 bor">
           <SkinConcern resultedImage = {state._response}/>

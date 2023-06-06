@@ -39,17 +39,19 @@ export default function Layout() {
                                 <AverageSkinScore />
                             </div>
                         </div>
-                        <div className="row mt-2">
-                            <SkinAnalysis analyzedData={ state._response}/>
+                        <div className="row mt-2 d-flex">
+                            <div className="row">
+                            <SkinConcern analyzedData={ state._response}/>
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-7">
                         <div className="row">
-                            <div className="col-md-7 bor ">
-                                <SkinConcern analyzedData={ state._response}/>
-                            </div>
                             <div className="col-md-5 d-flex justify-content-center">
                                 <ResultView resultedImage = {state._response}/>
+                            </div>
+                            <div className="col-md-7 bor ">
+                            <SkinAnalysis analyzedData={ state._response}/>
                             </div>
                         </div>
                         <div className="row">

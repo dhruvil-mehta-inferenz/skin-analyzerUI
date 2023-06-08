@@ -21,6 +21,10 @@ const CheckState = (props) => {
     const [getOpenporesState, setOpenporesState] = useState([0, ' 0%', '#888888']);
     const [getDarkspotState, setDarkspotState] = useState([0, ' 0%', '#888888']);
     const [getOverviewState, setOverviewState] = useState([0, '0%', "#888888"]);
+    const [getCompState, setCompState] = useState('Remedies');
+    const [getTipsActiveState, setTipsActiveState] = useState('activeClass');
+    const [getRemActiveState, setRemActiveState] = useState('');
+    const [getShowState, setShowState] = useState(false);
 
 
 
@@ -46,7 +50,11 @@ const CheckState = (props) => {
             getDarkCircleState, setDarkCircleState,
             getOpenporesState, setOpenporesState,
             getDarkspotState, setDarkspotState,
-            getOverviewState, setOverviewState
+            getOverviewState, setOverviewState,
+            getCompState, setCompState,
+            getTipsActiveState, setTipsActiveState,
+            getRemActiveState, setRemActiveState,
+            getShowState, setShowState,
 
         }}>
             {props.children}

@@ -3,6 +3,59 @@
     font-weight: 400;
 }
 
+.featDiv:hover{
+    background-color: #ffffff;
+    border-radius: 11px;
+}
+.featDivDark:hover{
+    background-color: #1E2029 !important;
+    border-radius: 11px;
+}
+.tipRem{
+    background-color: #00000000;
+    border-radius: 20px;
+    color: #ededed;
+    font-size: xx-small;
+}
+.tipRemDark{
+    background-color: #00000000;
+    border-radius: 20px;
+    color: #1E1E1E;
+    font-size: xx-small;
+}
+.featDiv:hover .tipRem{
+    background-color: #000000;
+    border-radius: 20px;
+    color: #ededed;
+    font-size: xx-small;
+    display: block;
+}
+.featDivDark:hover .tipRem{
+    background-color: #000000;
+    border-radius: 20px;
+    color: #ededed;
+    font-size: xx-small;
+    display: block;
+}
+.featDiv:hover .remArrow{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #D8004F;
+    cursor: pointer;
+}
+.featDivDark:hover .remArrow{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #D8004F;
+    cursor: pointer;
+}
+.tipRemText{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
 .SA1_CP1{
     position: relative;
     width: 80px;

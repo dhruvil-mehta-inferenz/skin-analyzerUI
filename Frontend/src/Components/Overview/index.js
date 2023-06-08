@@ -60,17 +60,21 @@ export default function Overview() {
         </div>
         <div className="col-md-2 justify-content-center bor d-flex p-0">
           <div className={`align-self-center ${isMobile ? "d-flex mx-5 my-1" : ""}`}>
-            <div className="bor d-flex align-items-center">
-              <div className="severeIcon"></div>
-              <div className="severeText mx-1">Severe</div>
+            <div className=" d-flex align-items-center">
+              <div className="excellentIcon"></div>
+              <div className="excellentText mx-1">Excellent</div>
             </div>
-            <div className="bor d-flex align-items-center">
+            <div className=" d-flex align-items-center">
+              <div className="goodIcon"></div>
+              <div className="goodText mx-1">Good</div>
+            </div>
+            <div className=" d-flex align-items-center">
               <div className="moderateIcon"></div>
               <div className="moderateText mx-1">Moderate</div>
             </div>
-            <div className="bor d-flex align-items-center">
-              <div className="mildIcon"></div>
-              <div className="mildText mx-1">Mild</div>
+            <div className=" d-flex align-items-center">
+              <div className="poorIcon"></div>
+              <div className="poorText mx-1">Poor</div>
             </div>
           </div>
         </div>

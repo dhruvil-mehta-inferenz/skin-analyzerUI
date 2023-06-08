@@ -22,8 +22,8 @@ const CheckState = (props) => {
     const [getDarkspotState, setDarkspotState] = useState([0, ' 0%', '#888888']);
     const [getOverviewState, setOverviewState] = useState([0, '0%', "#888888"]);
     const [getCompState, setCompState] = useState('Remedies');
-    const [getTipsActiveState, setTipsActiveState] = useState('activeClass');
-    const [getRemActiveState, setRemActiveState] = useState('');
+    const [getTipsActiveState, setTipsActiveState] = useState('');
+    const [getRemActiveState, setRemActiveState] = useState('activeClass');
     const [getShowState, setShowState] = useState(false);
 
 

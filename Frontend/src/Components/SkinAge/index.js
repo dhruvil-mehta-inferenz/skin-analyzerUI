@@ -5,7 +5,7 @@ import GaugeChart from 'react-gauge-chart'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function SkinAge() {
+export default function SkinAge(props) {
     const [gaugeHeight, setGaugeHeight] = useState({
         height: "auto"
     });
@@ -20,7 +20,7 @@ export default function SkinAge() {
     }, [])
     return (
         <>
-            <div className="d-flex bor SkinAgeCards">
+            <div className="d-flex bor SkinAgeCards" style={{background:props.tileBackground,color:props.tileFontColor}}>
                 <div className="d-flex col-md-3 col-4 justify-content-center align-items-center">
                 <GaugeChart id="gauge-chart1" className='py-3' needleColor="#ffff00" colors={['#ffff00', '#ffff00', '#ffff00']} style={gaugeHeight} nrOfLevels={10} arcsLength={[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]} arcWidth={0.3} hideText={true}/>
                 </div>

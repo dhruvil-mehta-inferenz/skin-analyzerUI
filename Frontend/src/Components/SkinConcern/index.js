@@ -4,7 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, RadialLinearScale, regis
 import "../../css/Browser/SkinConcern.css"
 ChartJS.register(ArcElement, Tooltip, Legend, RadialLinearScale, ...registerables);
 
-export default function SkinConcern() {
+export default function SkinConcern(props) {
     const data = {
         labels: ['Wrinkles', 'Acne', 'Pigmentation', 'Dark Circles', 'Open Pores', 'Dark Spot'],
         datasets: [
@@ -40,6 +40,7 @@ export default function SkinConcern() {
                 },
                 angleLines: {
                     display: true,
+                    color: props.tileFontColor!='#000000'?props.tileFontColor:'rgba(24, 26, 36, 0.25)',
                 },
                 pointLabels: {
                     display: true,// Hides the labels around the radar chart
@@ -62,7 +63,7 @@ export default function SkinConcern() {
     }
     return (
         <>
-            <div className="container-fluid SK_Main">
+            <div className="container-fluid SK_Main" style={{background:props.tileBackground,color:props.tileFontColor}}>
                 <h5 className='d-flex justify-content-center p-1'>Your Skin Concern</h5>
                 <div className="container-fluid bor SK_Concren_Chart ">
                     <Radar data={data} options={options} />

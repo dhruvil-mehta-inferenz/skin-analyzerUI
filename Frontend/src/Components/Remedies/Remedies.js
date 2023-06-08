@@ -6,16 +6,14 @@ export default function Remedies(props) {
         <>
             <div className="bor container px-2">
                 <span className='bor'>
-                    <b> Remedies to Reduce <u>Wrinkle</u> and Restore Radiant Skin</b>
+                    <b> Remedies to Reduce <u>{props.featureName}</u> and Restore Radiant Skin</b>
                 </span>
                 <span className='scrollbar' id='style-14'>
                     <ol className='remListText mt-2'>
                         {
-                            props.data.length > 0 ? props.data.map((value) => {
+                            props.data.length > 0 ? props.data.map((value,_index) => {
                                 return (
-                                    <>
-                                        <li>{value.description}</li>
-                                    </>
+                                    <li key={_index}>{value.description}</li>
                                 )
                             }) :
                                 <>

@@ -7,7 +7,7 @@ import ProgressBar from '../../Utils/ProgressBars/ProgressBar';
 import { isMobile } from 'react-device-detect';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-export default function Overview() {
+export default function Overview(props) {
 
   const ref = useRef();
   const getAllContext = useContext(mainContext);
@@ -23,11 +23,11 @@ export default function Overview() {
   return (
     <>
       <ProgressBar ref={ref} />
-      <div className="d-flex bor OverViewCards flex-wrap">
+      <div className="d-flex bor OverViewCards flex-wrap" style={{ backgroundColor: props.tileBackground, color: props.tileFontColor }}>
         <div className="d-flex col-md-3  col-4 p-1 justify-content-center align-items-center">
-          <div className="circular-progress" style={{ background: `conic-gradient(#FFF500 ${getAllContext.getOverviewState[0] * 3.6}deg, #ededed 0deg)` }}>
-            <div className="circular-progress2">
-              <div className="circular-progress3">
+          <div className={`circular-progress ${props.tileBackground === '#1E2029' ? 'darkProgress' : ""}`} style={{ background: `conic-gradient(#FFF500 ${getAllContext.getOverviewState[0] * 3.6}deg, #ededed 0deg)` }}>
+            <div className={`circular-progress2 `}>
+              <div className="circular-progress3" style={{ background: `conic-gradient(#00000000 0deg, ${props.tileBackground} 0deg` }}>
                 <span className="progress-value" >
                   {getAllContext.getOverviewState[1]}
                 </span>

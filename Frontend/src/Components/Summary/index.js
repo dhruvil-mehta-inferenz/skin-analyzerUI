@@ -2,10 +2,10 @@ import React from 'react'
 import '../../css/Browser/Summary.css';
 
 
-export default function Summary() {
+export default function Summary(props) {
     return (
         <>
-            <div className="summaryMain mt-2 bor">
+            <div className="summaryMain mt-2 bor" style={{background:props.tileBackground,color:props.tileFontColor}}>
                 <div className="p-1">
                     <h5 className='summaryHeading mt-3 mx-2'>Based on the analysis of your skin, here are the results:</h5>
                     <ol className='summary_Data'>

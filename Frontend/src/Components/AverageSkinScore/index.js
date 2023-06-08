@@ -1,10 +1,10 @@
 import React from 'react'
 import '../../css/Browser/AverageSkinScore.css';
 
-export default function AverageSkinScore() {
+export default function AverageSkinScore(props) {
     return (
         <>
-            <div className="bor ASC_Cards">
+            <div className="bor ASC_Cards" style={{background:props.tileBackground,color:props.tileFontColor}}>
                 <div className="p-2">
                     <div className="d-flex col-md-9 col-12 bor">
                         <div className="col-md-12 col-12 ">

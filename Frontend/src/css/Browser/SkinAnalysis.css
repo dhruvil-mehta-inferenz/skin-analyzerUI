@@ -75,7 +75,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.darkProgressSA1_CP1::before{
+    background-color: rgba(30,32,41, 1);
+}
 .SA1_CP2{
     position: relative;
     padding: 2px !important;
@@ -127,7 +129,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.darkProgressSA2_CP1::before{
+    background-color: rgba(30,32,41, 1);
+}
 .SA2_CP2{
     position: relative;
     padding: 2px !important;
@@ -181,7 +185,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.darkProgressSA3_CP1::before{
+    background-color: rgba(30,32,41, 1);
+}
 .SA3_CP2{
     position: relative;
     padding: 2px !important;
@@ -233,7 +239,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.darkProgressSA4_CP1::before{
+    background-color: rgba(30,32,41, 1);
+}
 .SA4_CP2{
     position: relative;
     padding: 2px !important;
@@ -283,7 +291,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.darkProgressSA5_CP1::before{
+    background-color: rgba(30,32,41, 1);
+}
 .SA5_CP2{
     position: relative;
     padding: 2px !important;
@@ -333,7 +343,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
-
+.darkProgressSA6_CP1::before{
+    background-color: rgba(30,32,41, 1);
+}
 .SA6_CP2{
     position: relative;
     padding: 2px !important;

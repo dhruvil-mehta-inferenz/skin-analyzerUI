@@ -27,6 +27,9 @@
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 1);
 }
+.darkProgress::before{
+    background-color: rgba(30,32,41, 1);
+}
 
 .circular-progress2{
     position: relative;

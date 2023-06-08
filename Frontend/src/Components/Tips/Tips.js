@@ -7,18 +7,18 @@ export default function Tips(props) {
         <>
             <div className="bor container-px-2">
                 <span className='bor'>
-                    <b> Essential {"Wrinkle" + "'s"} <u>Tips</u> for Radient Skin</b>
+                    <b> Essential {props.featureName + "'s"} <u>Tips</u> for Radient Skin</b>
                 </span>
                 <div className='tipsListText row scrollbar bor' id="style-14">
-                    {props.data.length > 0 ? props.data.map((value) => {
+                    {props.data.length > 0 ? props.data.map((value,_index) => {
                         return (
-                            <>
-                                <div className='col-md-1 mt-3 bor'>
+                            <div className="row" key={_index}>
+                                <div className='col-md-1 col-3 mt-3 bor'>
                                     <div className="tipsIcon d-flex align-items-center justify-content-center">
                                         <GiWaterGallon fill='#ffffff' />
                                     </div>
                                 </div>
-                                <div className='col-md-11 mt-3 bor'>
+                                <div className='col-md-11 col-9 mt-3 bor'>
                                     <div className='row '>
                                         <span className='p-0'>
                                             <b>Title</b>
@@ -28,7 +28,7 @@ export default function Tips(props) {
                                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.
                                     </div>
                                 </div>
-                            </>
+                            </div>
                         )
                     }) :
                         <>

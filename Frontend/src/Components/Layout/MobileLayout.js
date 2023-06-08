@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Overview from '../Overview'
 import SkinAge from '../SkinAge'
 import AverageSkinScore from '../AverageSkinScore'
@@ -10,40 +10,73 @@ import { useLocation, useNavigate, useNavigationType } from 'react-router-dom'
 
 export default function MobileLayout() {
   const navType = useNavigationType();
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (navType === 'POP') {
-            navigate('/');
-        }
-    }, [])
+  const navigate = useNavigate();
+  const [getButtonTextState, setButtonTextState] = useState('Dark Mode');
+  const [getModeState, setModeState] = useState({
+    color: 'black',
+    backgroundColor: '#ECEEF5',
+    tileBG: '#FFFFFF',
+    tileFont: '#000000',
+  })
 
-    let { state } = useLocation();
-    if (state) {
-        state = JSON.parse(state);
+  function toggleMode() {
+    if (getModeState.color == 'black') {
+      setModeState({
+        color: 'white',
+        backgroundColor: '#1E1E1E',
+        tileBG: '#1E2029',
+        tileFont: '#FFFFFF',
+      })
+      setButtonTextState('Light Mode')
     }
+    else {
+      setModeState({
+        color: 'black',
+        backgroundColor: '#ECEEF5',
+        tileBG: '#FFFFFF',
+        tileFont: '#000000',
+      })
+      setButtonTextState('Dark Mode')
+    }
+  }
+  document.body.style.backgroundColor = getModeState.backgroundColor;
+  useEffect(() => {
+    if (navType === 'POP') {
+      navigate('/');
+    }
+  }, [])
+
+  let { state } = useLocation();
+  if (state) {
+    state = JSON.parse(state);
+  }
   return (
     <>
       <div className="container mt-4 bor">
+        <div className="form-check form-switch" style={{ position: 'absolute', right: '10px', top: 0 }}>
+          <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={toggleMode} />
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{ color: getModeState.color }}>{getButtonTextState}</label>
+        </div>
         <div className="">
-          <ResultView resultedImage = {state._response}/>
+          <ResultView resultedImage={state._response} />
         </div>
         <div className="mt-2 bor">
-          <SkinAnalysis resultedImage = {state._response}/>
+          <SkinAnalysis analyzedData={state?._response} bodyBackground={getModeState.backgroundColor} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />
         </div>
         <div className="mt-2 bor">
-          <SkinAge resultedImage = {state._response}/>
+          <SkinAge analyzedData={state?._response} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />
         </div>
         <div className="mt-2 bor">
-          <Overview analyzedData={ state._response}/>
+          <Overview analyzedData={state?._response} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />
         </div>
         <div className="mt-2 bor">
-          <SkinConcern resultedImage = {state._response}/>
+          <SkinConcern analyzedData={state?._response} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />
         </div>
         <div className="mt-2 bor">
-          <Summary resultedImage = {state._response}/>
+          <Summary analyzedData={state?._response} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />
         </div>
         <div className="mt-2 bor">
-          <AverageSkinScore resultedImage = {state._response}/>
+          <AverageSkinScore analyzedData={state?._response} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />
         </div>
       </div>
     </>

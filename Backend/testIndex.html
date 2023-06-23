@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://docs.opencv.org/4.5.3/opencv.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="output_canvas"></canvas>
+    <img src="./Images/ds_41.jpg" alt="" id="myimage" style="display: none" />
+  </body>
+  <script type="module">
+    // import * as tf from "@tensorflow/tfjs";
+    // import cv from "@techstark/opencv-js";
+    // import Jimp from "jimp";
+    // import { myTestImageString } from "./myimage.js";
+    var tensoredGrayScale;
+    async function check() {
+      try {
+        let imgS = document.getElementById("myimage");
+        // let _img2 = document.getElementById("output_canvas");
+        // const spotsModel = await tf.loadLayersModel(
+        //   "http://localhost:8080/Model/Spots2/model.json"
+        // );
+        // var jimpSrc = await Jimp.read("./Image/Liza_image.jpg");
+        var spotsModel;
+        function image_resize(_img, size) {
+          var src, dSize, resized_image;
+          //Read Image
+          cv["onRuntimeInitialized"] = async () => {
+            spotsModel = await tf.loadLayersModel(
+              "http://localhost:8080/Models/Spots/model.json"
+            );
+            console.log("----READ IMAGE----");
+            src = cv.imread(_img);
+            dSize = new cv.Size(256, 256);
+            console.log("----INIT SIZE----");
+
+            // //Create Matrix for storing Resized Image
+            resized_image = new cv.Mat();
+            cv.resize(src, resized_image, dSize);
+            console.log("----RESIZED IMAGE----");
+            // //Create Matrix for storing Grayscale Image
+            let grayImage = new cv.Mat();
+            cv.cvtColor(resized_image, grayImage, cv.COLOR_BGR2GRAY);
+            console.log("----GRAYED IMAGE-----");
+            // //Expand Dimens For Matrix
+            tensoredGrayScale = tf.tensor(grayImage.data, [
+              grayImage.rows,
+              grayImage.cols,
+            ]);
+            console.log("----TENSORING----");
+            const expanded = tensoredGrayScale.expandDims(2);
+            const expandedSec = expanded.expandDims(0);
+
+            var img = tf.image
+              .resizeBilinear(expandedSec, [256, 256])
+              .div(tf.scalar(255));
+            console.log("Before Pred");
+            var prediction = spotsModel.predict(img);
+
+            console.log("After Pred");
+            const squeezed = tf.squeeze(prediction);
+
+            console.log("==>", squeezed);
+            const [width, height] = squeezed.shape;
+
+            const canvas = document.createElement("canvas");
+            document.body.appendChild(canvas);
+            canvas.width = width;
+            canvas.height = height;
+            canvas.id="mycanbas"
+            await tf.browser.toPixels(squeezed, canvas);
+
+            setTimeout(async () => {
+              let _img2 = document.getElementById("mycanbas");
+              console.log("object");
+              let asrc = await cv.imread(_img2);
+              var dst = new cv.Mat();
+              cv.cvtColor(asrc, dst, cv.COLOR_BGR2BGRA);
+              var temp2 = new cv.Mat();
+              cv.threshold(dst, temp2, 40, 255, cv.THRESH_BINARY);
+              let rgbaPlanes = new cv.MatVector();
+              cv.split(temp2, rgbaPlanes);
+              let R = rgbaPlanes.get(0);
+              let G = rgbaPlanes.get(1);
+              let B = rgbaPlanes.get(2);
+              let A = rgbaPlanes.get(3);
+              // console.log(A)
+              let mergedPlanes = new cv.MatVector();
+              mergedPlanes.push_back(B);
+              mergedPlanes.push_back(G);
+              mergedPlanes.push_back(R);
+              let abc = new cv.Mat();
+              cv.merge(mergedPlanes, abc);
+              cv.imshow("output_canvas", abc);
+            }, 1500);
+            return "HELLO WORLD!";
+          };
+        }
+
+        //Image Resize
+        image_resize(imgS);
+        setTimeout(() => {
+          // console.log("--->", tensoredGrayScale);
+        }, 5000);
+      } catch (error) {
+        console.log("---", error);
+      }
+    }
+
+    check();
+  </script>
+</html>

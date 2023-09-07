@@ -1,23 +1,23 @@
-export default function SkinIssues(seq, DataTypes) {
-    seq.define('skinissues', {
+export default function SkinIssues(_seq, _DataTypes) {
+    _seq.define('skinissues', {
         issueName: {
-            type: DataTypes.STRING,
+            type: _DataTypes.STRING,
             defaultValue: 'Basic Skin Issue Name'
         },
         issueColor: {
-            type: DataTypes.STRING,
+            type: _DataTypes.STRING,
             defaultValue: '#000000'
         },
         issueDefination: {
-            type: DataTypes.STRING,
+            type: _DataTypes.STRING,
             defaultValue: 'Defination'
         },
         displayOrder: {
-            type: DataTypes.INTEGER,
+            type: _DataTypes.INTEGER,
             defaultValue: 0
         },
         isActive: {
-            type: DataTypes.BOOLEAN,
+            type: _DataTypes.BOOLEAN,
             defaultValue: false
         }
     })

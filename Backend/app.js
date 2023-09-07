@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { getAcneData, getDarkCircleData, getPigmentData, getPoresData, getSpotData, getWrinkleData } from './Application/Controllers/modelLoadController.js';
 import './Application/DBModels/index.js'
+import { allScoreCategories, allSkinIssues } from './Application/Controllers/dataLoadController.js';
+import { analyzeUserData } from './Application/Controllers/userDataAnalyzerController.js';
 dotenv.config();
 const app = express();
 // app.use(express.json());
@@ -15,12 +17,11 @@ app.get('/', (request, response) => {
 });
 
 
-app.post('/analyzeAcne', getAcneData);
-app.post('/analyzeDariCircle', getDarkCircleData);
-app.post('/analyzePigmentation', getPigmentData);
-app.post('/analyzePores', getPoresData);
-app.post('/analyzeSpot', getSpotData);
-app.post('/analyzeWrikle', getWrinkleData);
+app.get('/list_skinIssues', allSkinIssues);
+app.get('/list_scoreCategories', allScoreCategories);
+
+
+app.post('/user_data_analysis', analyzeUserData);
 
 app.listen(process.env.SERVER_PORT, () => {
     console.log("App Is Running On Port:", process.env.SERVER_PORT);

@@ -1,7 +1,8 @@
 import { DataTypes, Sequelize } from "sequelize";
 import skinIssues from './skinIssuesTable.js';
 import scoreCategories from "./scoreCategoriesTable.js";
-
+import userInfo from './userInfoTable.js'
+import scoreHistory from './scoreHistoryTable.js'
 
 
 const seq = new Sequelize('felicita', 'root', '', {
@@ -26,9 +27,12 @@ db.sqe = seq;
 
 skinIssues(seq, DataTypes);
 scoreCategories(seq, DataTypes);
-
-seq.sync({force:false}).then(() => {
+userInfo(seq, DataTypes);
+scoreHistory(seq, DataTypes);
+seq.sync({ force: false }).then(() => {
     console.log("TABLES SYNCED");
 }).catch(() => {
     console.log("TABLES DIDN'T SYNCED");
 });
+
+export default seq;

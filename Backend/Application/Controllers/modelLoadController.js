@@ -16,29 +16,24 @@ var prediction;
 var finalMask;
 var stringData;
 var getScore;
-const baseInitial = "data:image/png;base64,";
 
-var getAcneData = async function (req, res, next) {
+async function getAcneData(_base64Image) {
 
     try {
-        getImage = await makeTemporaryImage(req.body.base64Image);
+        getImage = await makeTemporaryImage(_base64Image);
         resizedImage = imageResize(getImage.bitmap);
         preprocessedImage = preProcessImage(resizedImage);
         prediction = loadedAcneModel.predict(preprocessedImage);
         finalMask = transformPrediction(prediction);
         stringData = await toBase64(finalMask);
         getScore = await predictScore(stringData);
-
-        // res.send(baseInitial + stringData);
-        res.json(
-            { "score": getScore }
-        );
+        return getScore;
     } catch (error) {
-        console.log("Acne Prediction Failure!",error)
+        console.log("Acne Prediction Failure!", error)
     }
 
 }
-var getDarkCircleData = async function (req, res, next) {
+async function getDarkCircleData(_base64Image) {
 
     try {
         getImage = await makeTemporaryImage(req.body.base64Image);
@@ -47,13 +42,13 @@ var getDarkCircleData = async function (req, res, next) {
         prediction = loadedDarkCircleModel.predict(preprocessedImage);
         finalMask = transformPrediction(prediction);
         stringData = await toBase64(finalMask);
-        res.send(baseInitial + stringData);
+        //RETURN
     } catch (error) {
         console.log("DarkCircle Prediction Failure!")
     }
 
 }
-var getPigmentData = async function (req, res, next) {
+async function getPigmentData(_base64Image) {
 
     try {
         getImage = await makeTemporaryImage(req.body.base64Image);
@@ -62,13 +57,13 @@ var getPigmentData = async function (req, res, next) {
         prediction = loadedPigmentationModel.predict(preprocessedImage);
         finalMask = transformPrediction(prediction);
         stringData = await toBase64(finalMask);
-        res.send(baseInitial + stringData);
+        //RETURN
     } catch (error) {
         console.log("Pigmentation Prediction Failure!")
     }
 
 }
-var getPoresData = async function (req, res, next) {
+async function getPoresData(_base64Image) {
 
     try {
         getImage = await makeTemporaryImage(req.body.base64Image);
@@ -77,13 +72,13 @@ var getPoresData = async function (req, res, next) {
         prediction = loadedPoresModel.predict(preprocessedImage);
         finalMask = transformPrediction(prediction);
         stringData = await toBase64(finalMask);
-        res.send(baseInitial + stringData);
+        //RETURN
     } catch (error) {
         console.log("Pores Prediction Failure!")
     }
 
 }
-var getSpotData = async function (req, res, next) {
+async function getSpotData(_base64Image) {
 
     try {
         getImage = await makeTemporaryImage(req.body.base64Image);
@@ -92,13 +87,13 @@ var getSpotData = async function (req, res, next) {
         prediction = loadedSpotsModel.predict(preprocessedImage);
         finalMask = transformPrediction(prediction);
         stringData = await toBase64(finalMask);
-        res.send(baseInitial + stringData);
+        //RETURN
     } catch (error) {
         console.log("Spots Prediction Failure!")
     }
 
 }
-var getWrinkleData = async function (req, res, next) {
+async function getWrinkleData(_base64Image) {
 
     try {
         getImage = await makeTemporaryImage(req.body.base64Image);
@@ -107,7 +102,7 @@ var getWrinkleData = async function (req, res, next) {
         prediction = loadedWrinkleModel.predict(preprocessedImage);
         finalMask = transformPrediction(prediction);
         stringData = await toBase64(finalMask);
-        res.send(baseInitial + stringData);
+        //RETURN
     } catch (error) {
         console.log("Wrinkles Prediction Failure!")
     }

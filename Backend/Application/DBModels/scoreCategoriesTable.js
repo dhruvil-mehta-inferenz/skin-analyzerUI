@@ -1,23 +1,23 @@
-export default function ScoreCategories(seq, DataTypes) {
-    seq.define('scorecategories', {
+export default function ScoreCategories(_seq, _DataTypes) {
+    _seq.define('scorecategories', {
         categoryName: {
-            type: DataTypes.STRING,
+            type: _DataTypes.STRING,
             defaultValue: 'Basic Category Name'
         },
         categoryColor: {
-            type: DataTypes.STRING,
+            type: _DataTypes.STRING,
             defaultValue: '#000000'
         },
         minScore: {
-            type: DataTypes.INTEGER,
+            type: _DataTypes.INTEGER,
             defaultValue: 0
         },
         maxScore: {
-            type: DataTypes.INTEGER,
+            type: _DataTypes.INTEGER,
             defaultValue: 100
         },
         isActive: {
-            type: DataTypes.BOOLEAN,
+            type: _DataTypes.BOOLEAN,
             default: false
         }
     });

@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon app.js",
+    "start": "nodemon app.js",
     "checkTest": "nodemon testIndex.js",
-    "host": "nodemon modelHost.js",
-    "start": "http-server --cors ./"
+    "modelHost": "http-server --cors ./"
   },
   "keywords": [],
   "author": "",

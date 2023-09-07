@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { getAcneData, getDarkCircleData, getPigmentData, getPoresData, getSpotData, getWrinkleData } from './Application/Controllers/spotController.js';
+import './Application/DBModels/index.js'
 dotenv.config();
 const app = express();
 // app.use(express.json());

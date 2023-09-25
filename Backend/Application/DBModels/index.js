@@ -12,7 +12,8 @@ const seq = new Sequelize('felicita', 'root', '', {
         max: 5,
         min: 0,
         idle: 10000
-    }
+    },
+    logging: false
 });
 
 seq.authenticate().then(() => {

@@ -10,6 +10,14 @@ export default function UserInfo(_seq, _DataTypes) {
             type: _DataTypes.STRING,
             defaultValue: 'WEB',
             allowNull: false
+        },
+        createdAt:{
+            type: _DataTypes.DATEONLY,
+            defaultValue: _DataTypes.NOW
+        },
+        updatedAt:{
+            type: _DataTypes.DATEONLY,
+            defaultValue: _DataTypes.NOW
         }
     });
 }

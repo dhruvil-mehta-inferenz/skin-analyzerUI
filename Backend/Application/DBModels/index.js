@@ -3,6 +3,8 @@ import skinIssues from './skinIssuesTable.js';
 import scoreCategories from "./scoreCategoriesTable.js";
 import userInfo from './userInfoTable.js'
 import scoreHistory from './scoreHistoryTable.js'
+import tipsInfo from "./tipsInfoTable.js";
+import remediesInfo from "./remediesInfoTable.js";
 
 
 const seq = new Sequelize('felicita', 'root', '', {
@@ -30,6 +32,8 @@ skinIssues(seq, DataTypes);
 scoreCategories(seq, DataTypes);
 userInfo(seq, DataTypes);
 scoreHistory(seq, DataTypes);
+tipsInfo(seq, DataTypes);
+remediesInfo(seq, DataTypes);
 seq.sync({ force: false }).then(() => {
     console.log("TABLES SYNCED");
 }).catch(() => {

@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import seq from '../DBModels/index.js';
 import { getAcneData, getDarkCircleData, getPigmentData, getPoresData, getSpotData, getWrinkleData } from './modelLoadController.js';
 const UserInfo = seq.model('userinfo');
@@ -15,6 +16,29 @@ let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
 let year = date_ob.getFullYear();
 let mainDate = year + '-' + month + '-' + date;
 
+
+async function getScoreCategory(_data) {
+    let category = '';
+    if (!_data < 0) {
+
+        await ScoreCategory.findAll({
+            where: {
+                minScore: {
+                    [Op.lt]: _data
+                },
+                maxScore: {
+                    [Op.gte]: _data
+                }
+            }
+        }).then((_response) => {
+            category = _response[0].dataValues['categoryName'];
+        })
+    }
+    else {
+        category='Poor'
+    }
+    return category;
+}
 async function analyzeUserData(_request, _response) {
     var acneScore;
     var spotsScore;
@@ -23,11 +47,10 @@ async function analyzeUserData(_request, _response) {
     var openPoresScore;
     var pigmentationScore;
     var resultsScore = {};
+    let scoreCategory;
     if (_request.query.skinIssue.toUpperCase() === 'ACNE') {
         acneScore = await getAcneData(_request.body.base64Image);
-        let scoreCategory = () => {
-            ScoreCategory.findAll({})
-        }
+        scoreCategory = await getScoreCategory(acneScore.getScore);
         try {
             response.data = [{
                 issueName: _request.query.skinIssue,
@@ -45,11 +68,12 @@ async function analyzeUserData(_request, _response) {
     }
     if (_request.query.skinIssue.toUpperCase() === 'SPOTS') {
         spotsScore = await getSpotData(_request.body.base64Image);
+        scoreCategory = await getScoreCategory(spotsScore.getScore);
         try {
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: spotsScore.getScore,
-                scoreCategory: 'Excellent',
+                scoreCategory: scoreCategory,
                 mask: spotsScore.stringData
             }];
             resultsScore['spots'] = spotsScore.getScore;
@@ -62,11 +86,12 @@ async function analyzeUserData(_request, _response) {
     }
     if (_request.query.skinIssue.toUpperCase() === 'WRINKLES') {
         wrinklesScore = await getWrinkleData(_request.body.base64Image);
+        scoreCategory = await getScoreCategory(wrinklesScore.getScore);
         try {
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: wrinklesScore.getScore,
-                scoreCategory: 'Excellent',
+                scoreCategory: scoreCategory,
                 mask: wrinklesScore.stringData
             }];
             resultsScore['wrinkles'] = wrinklesScore.getScore;
@@ -79,11 +104,12 @@ async function analyzeUserData(_request, _response) {
     }
     if (_request.query.skinIssue.toUpperCase() === 'DARK_CIRCLES') {
         darkCirclesScore = await getDarkCircleData(_request.body.base64Image);
+        scoreCategory = await getScoreCategory(darkCirclesScore.getScore);
         try {
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: darkCirclesScore.getScore,
-                scoreCategory: 'Excellent',
+                scoreCategory: scoreCategory,
                 mask: darkCirclesScore.stringData
             }];
             resultsScore['darkCircles'] = darkCirclesScore.getScore;
@@ -96,11 +122,12 @@ async function analyzeUserData(_request, _response) {
     }
     if (_request.query.skinIssue.toUpperCase() === 'OPEN_PORES') {
         openPoresScore = await getPoresData(_request.body.base64Image);
+        scoreCategory = await getScoreCategory(openPoresScore.getScore);
         try {
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: openPoresScore.getScore,
-                scoreCategory: 'Excellent',
+                scoreCategory: scoreCategory,
                 mask: openPoresScore.stringData
             }];
             resultsScore['openPores'] = openPoresScore.getScore;
@@ -113,11 +140,12 @@ async function analyzeUserData(_request, _response) {
     }
     if (_request.query.skinIssue.toUpperCase() === 'PIGMENTATION') {
         pigmentationScore = await getPigmentData(_request.body.base64Image);
+        scoreCategory = await getScoreCategory(pigmentationScore.getScore);
         try {
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: pigmentationScore.getScore,
-                scoreCategory: 'Excellent',
+                scoreCategory: scoreCategory,
                 mask: pigmentationScore.stringData
             }];
             resultsScore['pigmentation'] = pigmentationScore.getScore;

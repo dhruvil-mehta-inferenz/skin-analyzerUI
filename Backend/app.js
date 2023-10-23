@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import './Application/DBModels/index.js'
-import { allScoreCategories, allSkinIssues } from './Application/Controllers/dataLoadController.js';
+import { allRemedies, allScoreCategories, allSkinIssues, allTips } from './Application/Controllers/dataLoadController.js';
 import { analyzeUserData } from './Application/Controllers/userDataAnalyzerController.js';
 import { remedyImport, tipImport } from './Application/Controllers/importsController.js';
 dotenv.config();
@@ -19,6 +19,8 @@ app.get('/', (request, response) => {
 
 app.get('/list_skinIssues', allSkinIssues);
 app.get('/list_scoreCategories', allScoreCategories);
+app.get('/tips', allTips);
+app.get('/remedies', allRemedies);
 
 
 app.post('/user_data_analysis', analyzeUserData);

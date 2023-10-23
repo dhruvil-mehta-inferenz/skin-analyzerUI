@@ -12,6 +12,10 @@ export default function remediesInfo(_seq, _DataTypes) {
             type: _DataTypes.STRING,
             defaultValue: ''
         },
+        title: {
+            type: _DataTypes.STRING,
+            defaultValue:''
+        },
         description: {
             type: _DataTypes.STRING,
             defaultValue: ''

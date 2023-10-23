@@ -32,6 +32,7 @@ function remedyImport(_request, _response) {
             skinIssue: element.skin_issue,
             type: element.level,
             category: element.score_category,
+            title:element.title,
             description: element.description
         })
     }

@@ -19,8 +19,7 @@ let mainDate = year + '-' + month + '-' + date;
 
 async function getScoreCategory(_data) {
     let category = '';
-    if (!_data < 0) {
-
+    if (!(_data < 0)) {
         await ScoreCategory.findAll({
             where: {
                 minScore: {
@@ -35,7 +34,7 @@ async function getScoreCategory(_data) {
         })
     }
     else {
-        category='Poor'
+        category = 'Poor'
     }
     return category;
 }
@@ -49,9 +48,9 @@ async function analyzeUserData(_request, _response) {
     var resultsScore = {};
     let scoreCategory;
     if (_request.query.skinIssue.toUpperCase() === 'ACNE') {
-        acneScore = await getAcneData(_request.body.base64Image);
-        scoreCategory = await getScoreCategory(acneScore.getScore);
         try {
+            acneScore = await getAcneData(_request.body.base64Image);
+            scoreCategory = await getScoreCategory(acneScore.getScore);
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: acneScore.getScore,
@@ -67,9 +66,9 @@ async function analyzeUserData(_request, _response) {
         }
     }
     if (_request.query.skinIssue.toUpperCase() === 'SPOTS') {
-        spotsScore = await getSpotData(_request.body.base64Image);
-        scoreCategory = await getScoreCategory(spotsScore.getScore);
         try {
+            spotsScore = await getSpotData(_request.body.base64Image);
+            scoreCategory = await getScoreCategory(spotsScore.getScore);
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: spotsScore.getScore,
@@ -85,9 +84,9 @@ async function analyzeUserData(_request, _response) {
         }
     }
     if (_request.query.skinIssue.toUpperCase() === 'WRINKLES') {
-        wrinklesScore = await getWrinkleData(_request.body.base64Image);
-        scoreCategory = await getScoreCategory(wrinklesScore.getScore);
         try {
+            wrinklesScore = await getWrinkleData(_request.body.base64Image);
+            scoreCategory = await getScoreCategory(wrinklesScore.getScore);
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: wrinklesScore.getScore,
@@ -103,9 +102,9 @@ async function analyzeUserData(_request, _response) {
         }
     }
     if (_request.query.skinIssue.toUpperCase() === 'DARK_CIRCLES') {
-        darkCirclesScore = await getDarkCircleData(_request.body.base64Image);
-        scoreCategory = await getScoreCategory(darkCirclesScore.getScore);
         try {
+            darkCirclesScore = await getDarkCircleData(_request.body.base64Image);
+            scoreCategory = await getScoreCategory(darkCirclesScore.getScore);
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: darkCirclesScore.getScore,
@@ -121,9 +120,9 @@ async function analyzeUserData(_request, _response) {
         }
     }
     if (_request.query.skinIssue.toUpperCase() === 'OPEN_PORES') {
-        openPoresScore = await getPoresData(_request.body.base64Image);
-        scoreCategory = await getScoreCategory(openPoresScore.getScore);
         try {
+            openPoresScore = await getPoresData(_request.body.base64Image);
+            scoreCategory = await getScoreCategory(openPoresScore.getScore);
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: openPoresScore.getScore,
@@ -139,9 +138,9 @@ async function analyzeUserData(_request, _response) {
         }
     }
     if (_request.query.skinIssue.toUpperCase() === 'PIGMENTATION') {
-        pigmentationScore = await getPigmentData(_request.body.base64Image);
-        scoreCategory = await getScoreCategory(pigmentationScore.getScore);
         try {
+            pigmentationScore = await getPigmentData(_request.body.base64Image);
+            scoreCategory = await getScoreCategory(pigmentationScore.getScore);
             response.data = [{
                 issueName: _request.query.skinIssue,
                 score: pigmentationScore.getScore,

@@ -6,7 +6,7 @@ import AverageSkinScore from '../AverageSkinScore'
 import SkinAnalysis from '../SkinAnalysis'
 import SkinConcern from '../SkinConcern'
 import Summary from '../Summary'
-import ResultView from '../ResultView/inedx'
+import ResultView from '../ResultView'
 import { useLocation, useNavigate, useNavigationType } from 'react-router-dom'
 
 export default function Layout() {
@@ -21,7 +21,7 @@ export default function Layout() {
     })
 
     function toggleMode() {
-        if (getModeState.color == 'black') {
+        if (getModeState.color === 'black') {
             setModeState({
                 color: 'white',
                 backgroundColor: '#1E1E1E',
@@ -45,6 +45,7 @@ export default function Layout() {
         if (navType === 'POP') {
             navigate('/');
         }
+        // eslint-disable-next-line
     }, [])
 
     let { state } = useLocation();
@@ -81,7 +82,7 @@ export default function Layout() {
                     <div className="col-md-7">
                         <div className="row">
                             <div className="col-md-5 d-flex justify-content-center">
-                                <ResultView analyzedData={state?._response} />
+                                <ResultView analyzedData={state?._response} resultedImage={state?._base64} />
                             </div>
                             <div className="col-md-7 bor ">
                                 <SkinAnalysis analyzedData={state?._response} bodyBackground={getModeState.backgroundColor} tileBackground={getModeState.tileBG} tileFontColor={getModeState.tileFont} />

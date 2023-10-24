@@ -12,7 +12,9 @@ import { calculateBrightness, calculateFacePosition, calculateLookStraight } fro
 import Webcam from 'react-webcam';
 
 export default function MobileCameraView() {
-    let getResults, getLandmarks, setBrightness, setLookStraight, setFacePosition, responseData, lightFlag = 0, lookFlag = 0, faceFlag = 0, isClicked = false, canvasElement, canvasWithImgElement, canvasWithImgCtx, canvasCtx, imageData, loaderHeight = '100%';
+    let getResults, getLandmarks, setBrightness, setLookStraight, setFacePosition, lightFlag = 0, lookFlag = 0, faceFlag = 0, canvasElement, canvasWithImgElement, canvasWithImgCtx, canvasCtx, loaderHeight = '100%';
+    // eslint-disable-next-line 
+    var isClicked = false;
     let imageFrame = document.getElementsByClassName('output_canvasMobile');
 
 
@@ -46,31 +48,7 @@ export default function MobileCameraView() {
 
     async function HandleProcced(_confirmedImage) {
         getAllContext.setDisplayLoaderState(['flex', 'blur(8px)']);
-        const data = {
-            user_uuid: "9ff2004d-544c-46e5-8032-2c9290b7012b",
-            image: _confirmedImage,
-            source: "WEB_PORTAL"
-        }
-        const headers = {
-            'Content-Type': 'application/json',
-        }
-        // await axios.post(`${baseURL}/api/v1/analysis/`, data, {
-        //     headers: headers
-        // }).then((_response) => {
-        //     getAllContext.setDisplayLoaderState(['none', 'blur(0px)']);
-        //     // console.log("----", _response)
-        //     // navigate("/Layout", { replace: true, state: JSON.stringify({ _response }) });
-        // }).catch((error) => {
-        //     console.log(error, "error")
-        // })
         navigate("/Layout", { replace: true, state: JSON.stringify('{ _response }') });
-        // if (responseData!==null) {
-        //     console.log("CHECK Data", responseData)
-        //     // navigate("/Layout", { replace: true, state: JSON.stringify({ responseData }) });
-        // }
-        // else {
-        //     console.log("----")
-        // }
     }
 
     function handleReject() {
@@ -238,6 +216,7 @@ export default function MobileCameraView() {
             })
             camera.start()
         }
+        // eslint-disable-next-line
     }, [getAllContext.getRejectedState])
 
     useEffect(() => {
@@ -247,6 +226,7 @@ export default function MobileCameraView() {
                 A_name.current = "1"
               }
         }, 1000);
+        // eslint-disable-next-line
     }, [getAllContext.getAllFlag && getAllContext.counter]);
 
     return (
@@ -263,7 +243,7 @@ export default function MobileCameraView() {
                 <div className="CameraViewMainMobile mt-1">
                     <canvas ref={canvasRef} className='output_canvasMobile' style={{ filter: `${getAllContext.getDisplayLoaderState[1]}` }}  ></canvas>
                     <canvas ref={canvasWithImage} className='gl_Canvas'></canvas>
-                    <img src={pre_Loader} id='loaderId' style={{ display: `${getAllContext.getDisplayLoaderState[0]}`, position: 'absolute', height: loaderHeight, width: '50%'  }} className="justify-content-center" />
+                    <img src={pre_Loader} id='loaderId'alt='loader' style={{ display: `${getAllContext.getDisplayLoaderState[0]}`, position: 'absolute', height: loaderHeight, width: '50%'  }} className="justify-content-center" />
                     <div className="justify-content-center bor" style={{ display: `${getAllContext.getConfirmState}` }}>
                         <div className='col-md-6 mx-' >
                             <div className="d-flex justify-content-center align-items-center confirmationDiv bor" onClick={handleReject} style={{ cursor: 'pointer' }}>

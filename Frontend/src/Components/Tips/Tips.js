@@ -10,7 +10,7 @@ export default function Tips(props) {
                     <b> Essential {props.featureName + "'s"} <u>Tips</u> for Radient Skin</b>
                 </span>
                 <div className='tipsListText row scrollbar bor' id="style-14">
-                    {props.data.length > 0 ? props.data.map((value,_index) => {
+                    {props.data.length > 0 ? props.data.map((_value,_index) => {
                         return (
                             <div className="row" key={_index}>
                                 <div className='col-md-1 col-3 mt-3 bor'>
@@ -21,11 +21,11 @@ export default function Tips(props) {
                                 <div className='col-md-11 col-9 mt-3 bor'>
                                     <div className='row '>
                                         <span className='p-0'>
-                                            <b>Title</b>
+                                            <b>{_value.title }</b>
                                         </span>
                                     </div>
                                     <div className='row'>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.
+                                        {_value.description}
                                     </div>
                                 </div>
                             </div>
@@ -46,20 +46,28 @@ Tips.defaultProps = {
     featureNameDesc: 'An age-related skin condition characterized by fine lines and creases on the surface, often caused by a loss of collagen and elastin in the skin.',
     data: [
         {
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
+            "title": "Title",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.",
         },
         {
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
+            "title": "Title",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.",
+        },
+        {
+            "title": "Title",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.",
+        },
+        {
+            "title": "Title",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.",
+        },
+        {
+            "title": "Title",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.",
+        },
+        {
+            "title": "Title",
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla obcaecati earum odio quod sunt animi similique provident? Eligendi dolores consequuntur et facere, rem repudiandae, at, ratione esse perspiciatis possimus quaerat.",
         },
     ]
 }

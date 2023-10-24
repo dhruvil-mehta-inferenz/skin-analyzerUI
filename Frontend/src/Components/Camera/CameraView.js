@@ -8,15 +8,14 @@ import pre_Loader from '../../Images/Preloader.gif';
 import { GrStatusGood } from 'react-icons/gr';
 import { GiCancel } from 'react-icons/gi';
 import { calculateBrightness, calculateFacePosition, calculateLookStraight } from '../../Utils/ImageProcess/faceParameters'
-import { SendImages } from '../../Utils/API'
 import { useNavigate } from 'react-router-dom'
 import mainContext from '../../Utils/States/indexContext'
-import axios from 'axios'
-import { baseURL } from '../../Utils/Config'
 
 
 export default function CameraView() {
-    let getResults, getLandmarks, setBrightness, setLookStraight, setFacePosition, responseData, lightFlag = 0, lookFlag = 0, faceFlag = 0, isClicked = false, canvasElement, canvasWithImgElement, canvasWithImgCtx, canvasCtx, imageData, loaderHeight = '100%';
+    let getResults, getLandmarks, setBrightness, setLookStraight, setFacePosition, lightFlag = 0, lookFlag = 0, faceFlag = 0, canvasElement, canvasWithImgElement, canvasWithImgCtx, canvasCtx, loaderHeight = '100%';
+    // eslint-disable-next-line
+    var isClicked = false;
     let imageFrame = document.getElementsByClassName('output_canvas');
 
     const webcamRef = useRef(null);
@@ -49,31 +48,7 @@ export default function CameraView() {
 
     async function HandleProcced(_confirmedImage) {
         getAllContext.setDisplayLoaderState(['flex', 'blur(8px)']);
-        const data = {
-            user_uuid: "9ff2004d-544c-46e5-8032-2c9290b7012b",
-            image: _confirmedImage,
-            source: "WEB_PORTAL"
-        }
-        const headers = {
-            'Content-Type': 'application/json',
-        }
-        // await axios.post(`${baseURL}/api/v1/analysis/`, data, {
-        //     headers: headers
-        // }).then((_response) => {
-        //     getAllContext.setDisplayLoaderState(['none', 'blur(0px)']);
-        //     // console.log("----", _response)
-        //     // navigate("/Layout", { replace: true, state: JSON.stringify({ _response }) });
-        // }).catch((error) => {
-        //     console.log(error, "error")
-        // })
         navigate("/Layout", { replace: true, state: JSON.stringify('{ _response }') });
-        // if (responseData!==null) {
-        //     console.log("CHECK Data", responseData)
-        //     // navigate("/Layout", { replace: true, state: JSON.stringify({ responseData }) });
-        // }
-        // else {
-        //     console.log("----")
-        // }
     }
 
     function handleReject() {
@@ -95,7 +70,7 @@ export default function CameraView() {
         const link = document.createElement('a');
         link.download = 'canvas.jpg';
         link.href = canvas.toDataURL('image/jpeg', 0.8);
-        isClicked = true
+        isClicked = true;
         getAllContext.setZState(0);
         getAllContext.setConfirmState('flex');
         getAllContext.setConfirmStateInverse('none');
@@ -245,6 +220,7 @@ export default function CameraView() {
             })
             camera.start()
         }
+        // eslint-disable-next-line
     }, [getAllContext.getRejectedState])
 
     useEffect(() => {
@@ -254,6 +230,7 @@ export default function CameraView() {
                 A_name.current = "1"
               }
         }, 1000);
+        // eslint-disable-next-line
     }, [getAllContext.getAllFlag && getAllContext.counter]);
 
     return (
@@ -270,7 +247,7 @@ export default function CameraView() {
                 <div className="d-flex justify-content-center align-items-start row w-75 h-100 px-3">
                     <canvas ref={canvasRef} className='output_canvas' style={{ filter: `${getAllContext.getDisplayLoaderState[1]}` }}  ></canvas>
                     <canvas ref={canvasWithImage} className='gl_Canvas'></canvas>
-                    <img src={pre_Loader} id='loaderId' style={{ display: `${getAllContext.getDisplayLoaderState[0]}`, position: 'absolute', height: loaderHeight, width: '50%' }} className="justify-content-center" />
+                    <img src={pre_Loader} id='loaderId' alt="loader" style={{ display: `${getAllContext.getDisplayLoaderState[0]}`, position: 'absolute', height: loaderHeight, width: '50%' }} className="justify-content-center" />
                     <div className="d-flex justify-content-evenly" style={{ position: "absolute", top: '80%' }}>
                         <div className="row w-50 bor" style={{ display: `${getAllContext.getConfirmState}` }}>
                             <div className='col-md-6' >

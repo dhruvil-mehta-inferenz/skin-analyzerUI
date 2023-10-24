@@ -5,7 +5,7 @@ import AverageSkinScore from '../AverageSkinScore'
 import SkinAnalysis from '../SkinAnalysis'
 import SkinConcern from '../SkinConcern'
 import Summary from '../Summary'
-import ResultView from '../ResultView/inedx'
+import ResultView from '../ResultView'
 import { useLocation, useNavigate, useNavigationType } from 'react-router-dom'
 
 export default function MobileLayout() {
@@ -20,7 +20,7 @@ export default function MobileLayout() {
   })
 
   function toggleMode() {
-    if (getModeState.color == 'black') {
+    if (getModeState.color === 'black') {
       setModeState({
         color: 'white',
         backgroundColor: '#1E1E1E',
@@ -44,6 +44,7 @@ export default function MobileLayout() {
     if (navType === 'POP') {
       navigate('/');
     }
+    // eslint-disable-next-line
   }, [])
 
   let { state } = useLocation();

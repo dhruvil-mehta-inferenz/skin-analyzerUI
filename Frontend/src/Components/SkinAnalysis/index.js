@@ -41,7 +41,7 @@ export default function SkinAnalysis(props) {
         <div className="container-fluid bor">
           <div className={isMobile ? '' : 'row'}>
             <div className="row d-flex justify-content-center">
-              <div className="col-md-4 col-6 py-1">
+              <div className="col-md-4 col-6 ">
                 <div className={`d-flex justify-content-center flex-wrap ${props.tileBackground === '#1E2029' ? 'featDivDark ' : "featDiv"}`}>
                   <div className={`SA1_CP1 ${props.tileBackground === '#1E2029' ? 'darkProgressSA1_CP1' : ""} my-1`} style={{ background: `conic-gradient(#00ff00 ${getAllContext.getWrinkleState[0] * 3.6}deg, #ededed 0deg)` }} /*onClick={handleWrinkleClick}*/ onClick={() => handleFeatureDetailClick(WrinkleNameRef.current, getAllContext.getWrinkleState[0], getAllContext.getWrinkleState[1], '#00ff00')}>
                     <div className="SA1_CP2">

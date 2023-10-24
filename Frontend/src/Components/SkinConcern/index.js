@@ -40,7 +40,7 @@ export default function SkinConcern(props) {
                 },
                 angleLines: {
                     display: true,
-                    color: props.tileFontColor!='#000000'?props.tileFontColor:'rgba(24, 26, 36, 0.25)',
+                    color: props.tileFontColor!=='#000000'?props.tileFontColor:'rgba(24, 26, 36, 0.25)',
                 },
                 pointLabels: {
                     display: true,// Hides the labels around the radar chart
@@ -63,7 +63,7 @@ export default function SkinConcern(props) {
     }
     return (
         <>
-            <div className="container-fluid SK_Main" style={{background:props.tileBackground,color:props.tileFontColor}}>
+            <div className="container-fluid SK_Main mt-1" style={{background:props.tileBackground,color:props.tileFontColor}}>
                 <h5 className='d-flex justify-content-center p-1'>Your Skin Concern</h5>
                 <div className="container-fluid bor SK_Concren_Chart ">
                     <Radar data={data} options={options} />

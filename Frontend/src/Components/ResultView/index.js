@@ -18,12 +18,12 @@ export default function ResultView(props) {
     }, [])
     return (
         <>
-            <div className="container-fluid resultViewMain m-0 p-0">
-                <div className="container-fluid d-flex justify-content-center bor " style={{ position: 'relative' }}>
+            <div className="container-fluid m-0 p-0">
+                <div className="container-fluid d-flex justify-content-center bor p-0 " style={{ position: 'relative' }}>
                     <canvas id='resultedCanvas' ref={canvasRef} className='resultedCanvas'></canvas>
                 </div>
                 <img src='' alt="" ref={imageRef} id="resultedImageId" style={{ display: 'none' }} />
-                {/* <img src={'data:image/png;base64,' + props.resultedImage.data.data.analyzed_images['combined_image']} alt="" ref={imageRef} id="resultedImageId" style={{ display: 'none' }} /> */}
+                <img src={'data:image/png;base64,' + props.resultedImage} alt="" ref={imageRef} id="resultedImageId" style={{ display: 'none' }} />
             </div>
         </>
     )

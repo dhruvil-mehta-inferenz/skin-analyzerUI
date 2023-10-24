@@ -11,9 +11,9 @@ export default function Remedies(props) {
                 <span className='scrollbar' id='style-14'>
                     <ol className='remListText mt-2'>
                         {
-                            props.data.length > 0 ? props.data.map((value,_index) => {
+                            props.data.length > 0 ? props.data.map((_value, _index) => {
                                 return (
-                                    <li key={_index}>{value.description}</li>
+                                    <li>{_value}</li>
                                 )
                             }) :
                                 <>
@@ -32,21 +32,10 @@ Remedies.defaultProps = {
     featureName: 'Wrinkles',
     featureNameDesc: 'An age-related skin condition characterized by fine lines and creases on the surface, often caused by a loss of collagen and elastin in the skin.',
     data: [
-        {
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-        },
-        {
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-            "0": "",
-        },
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam enim voluptatem harum vel, sit possimus quod pariatur eum architecto! Ex optio aut, unde facere sint debitis ab odit temporibus excepturi.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam enim voluptatem harum vel, sit possimus quod pariatur eum architecto! Ex optio aut, unde facere sint debitis ab odit temporibus excepturi.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam enim voluptatem harum vel, sit possimus quod pariatur eum architecto! Ex optio aut, unde facere sint debitis ab odit temporibus excepturi.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam enim voluptatem harum vel, sit possimus quod pariatur eum architecto! Ex optio aut, unde facere sint debitis ab odit temporibus excepturi.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam enim voluptatem harum vel, sit possimus quod pariatur eum architecto! Ex optio aut, unde facere sint debitis ab odit temporibus excepturi."
     ]
 }

@@ -20,7 +20,7 @@ export default function Solutions(props) {
             getAllContext.setTipsActiveState('');
             getAllContext.setRemActiveState('activeClass')
         }
-        else if (_Toggler == "Tips") {
+        else if (_Toggler === "Tips") {
             getAllContext.setRemActiveState('');
             getAllContext.setTipsActiveState('activeClass');
         }
@@ -32,8 +32,8 @@ export default function Solutions(props) {
                 <div className="row mt-4">
                     <div className={`bor col-md-6 col-10 d-flex justify-content-${isMobile ? 'center' : 'start'} align-items-center  mt-2`}>
                         <nav className="nav nav-pills p-1 bor">
-                            <a className={`d-flex justify-content-center nav-link ${getAllContext.getRemActiveState}`} onClick={() => handleNavTabToggle("Remedies")}>Remedies</a>
-                            <a className={`d-flex justify-content-center nav-link ${getAllContext.getTipsActiveState}`} onClick={() => handleNavTabToggle("Tips")}>Tips</a>
+                            <span className={`d-flex justify-content-center nav-link ${getAllContext.getRemActiveState}`} onClick={() => handleNavTabToggle("Remedies")}>Remedies</span>
+                            <span className={`d-flex justify-content-center nav-link ${getAllContext.getTipsActiveState}`} onClick={() => handleNavTabToggle("Tips")}>Tips</span>
                         </nav>
                     </div>
                     <div className="bor col-md-6 col-2 d-flex justify-content-end align-items-center  mt-2">

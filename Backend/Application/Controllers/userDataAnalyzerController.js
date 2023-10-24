@@ -51,12 +51,12 @@ async function analyzeUserData(_request, _response) {
         try {
             acneScore = await getAcneData(_request.body.base64Image);
             scoreCategory = await getScoreCategory(acneScore.getScore);
-            response.data = [{
+            response.data = {
                 issueName: _request.query.skinIssue,
                 score: acneScore.getScore,
                 scoreCategory: scoreCategory,
                 mask: acneScore.stringData
-            }];
+            };
             resultsScore['acne'] = acneScore.getScore;
 
         } catch (error) {
@@ -69,12 +69,12 @@ async function analyzeUserData(_request, _response) {
         try {
             spotsScore = await getSpotData(_request.body.base64Image);
             scoreCategory = await getScoreCategory(spotsScore.getScore);
-            response.data = [{
+            response.data = {
                 issueName: _request.query.skinIssue,
                 score: spotsScore.getScore,
                 scoreCategory: scoreCategory,
                 mask: spotsScore.stringData
-            }];
+            };
             resultsScore['spots'] = spotsScore.getScore;
 
         } catch (error) {
@@ -87,12 +87,12 @@ async function analyzeUserData(_request, _response) {
         try {
             wrinklesScore = await getWrinkleData(_request.body.base64Image);
             scoreCategory = await getScoreCategory(wrinklesScore.getScore);
-            response.data = [{
+            response.data = {
                 issueName: _request.query.skinIssue,
                 score: wrinklesScore.getScore,
                 scoreCategory: scoreCategory,
                 mask: wrinklesScore.stringData
-            }];
+            };
             resultsScore['wrinkles'] = wrinklesScore.getScore;
 
         } catch (error) {
@@ -105,12 +105,12 @@ async function analyzeUserData(_request, _response) {
         try {
             darkCirclesScore = await getDarkCircleData(_request.body.base64Image);
             scoreCategory = await getScoreCategory(darkCirclesScore.getScore);
-            response.data = [{
+            response.data = {
                 issueName: _request.query.skinIssue,
                 score: darkCirclesScore.getScore,
                 scoreCategory: scoreCategory,
                 mask: darkCirclesScore.stringData
-            }];
+            };
             resultsScore['darkCircles'] = darkCirclesScore.getScore;
 
         } catch (error) {
@@ -123,12 +123,12 @@ async function analyzeUserData(_request, _response) {
         try {
             openPoresScore = await getPoresData(_request.body.base64Image);
             scoreCategory = await getScoreCategory(openPoresScore.getScore);
-            response.data = [{
+            response.data = {
                 issueName: _request.query.skinIssue,
                 score: openPoresScore.getScore,
                 scoreCategory: scoreCategory,
                 mask: openPoresScore.stringData
-            }];
+            };
             resultsScore['openPores'] = openPoresScore.getScore;
 
         } catch (error) {
@@ -141,12 +141,12 @@ async function analyzeUserData(_request, _response) {
         try {
             pigmentationScore = await getPigmentData(_request.body.base64Image);
             scoreCategory = await getScoreCategory(pigmentationScore.getScore);
-            response.data = [{
+            response.data = {
                 issueName: _request.query.skinIssue,
                 score: pigmentationScore.getScore,
                 scoreCategory: scoreCategory,
                 mask: pigmentationScore.stringData
-            }];
+            };
             resultsScore['pigmentation'] = pigmentationScore.getScore;
 
         } catch (error) {

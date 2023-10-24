@@ -1,12 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import './Application/DBModels/index.js'
 import { allRemedies, allScoreCategories, allSkinIssues, allTips } from './Application/Controllers/dataLoadController.js';
 import { analyzeUserData } from './Application/Controllers/userDataAnalyzerController.js';
 import { remedyImport, tipImport } from './Application/Controllers/importsController.js';
 dotenv.config();
 const app = express();
+app.use(cors());
 // app.use(express.json());
 app.use(bodyParser.json({ limit: '50mb' }));
 // app.use(express.urlencoded({ extended: false }));

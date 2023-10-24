@@ -29,7 +29,7 @@ async function getAcneData(_base64Image) {
         getScore = await predictScore(stringData);
         return { getScore, stringData };
     } catch (error) {
-        console.log("Acne Prediction Failure!",error)
+        console.log("Acne Prediction Failure!")
     }
 
 }

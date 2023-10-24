@@ -12,7 +12,7 @@ async function makeTemporaryImage(_inputString) {
         inc += 1;
         return jimpSrc;
     } catch (error) {
-        console.log("Image Creation Error", error)
+        console.log("Image Creation Error")
     }
 
 }
@@ -106,24 +106,29 @@ async function toBase64(_inputTensor) {
 }
 
 async function predictScore(_inputImage) {
-    fs.writeFile('./GeneratedImages/ScoreImage.png', await _inputImage, { encoding: 'base64' }, function (err) { });
-
-    var jimpSrc = await Jimp.read('./GeneratedImages/ScoreImage.png');
-
-
-    var readImage = cv.matFromImageData(jimpSrc.bitmap);
-    var getMatData = new cv.Mat();;
-    cv.threshold(readImage, getMatData, 0, 255, cv.THRESH_BINARY);
-    readImage.delete();
-
-    cv.cvtColor(getMatData, getMatData, cv.COLOR_BGR2GRAY);
-
-    var getData = cv.countNonZero(getMatData);
-    getMatData.delete();
-    var one_percent = 2000 / 100;
-    var getScore = getData / one_percent;
-    let Score = Math.round(100 - getScore);
-    return Score;
+    try {
+        
+        fs.writeFile('./GeneratedImages/ScoreImage.png', await _inputImage, { encoding: 'base64' }, function (err) { });
+        
+        var jimpSrc = await Jimp.read('./GeneratedImages/ScoreImage.png');
+        
+        
+        var readImage = cv.matFromImageData(jimpSrc.bitmap);
+        var getMatData = new cv.Mat();
+        cv.threshold(readImage, getMatData, 0, 255, cv.THRESH_BINARY);
+        readImage.delete();
+        
+        cv.cvtColor(getMatData, getMatData, cv.COLOR_BGR2GRAY);
+        
+        var getData = cv.countNonZero(getMatData);
+        getMatData.delete();
+        var one_percent = 2000 / 100;
+        var getScore = getData / one_percent;
+        let Score = Math.round(100 - getScore);
+        return Score;
+    } catch (error) {
+        console.log("SCORE PREDICT ERROR")
+    }
 }
 
 export { imageResize, makeTemporaryImage, preProcessImage, transformPrediction, toBase64, predictScore }
